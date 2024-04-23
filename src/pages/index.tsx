@@ -1,16 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
-
+import 'smart-webcomponents-react/source/styles/smart.default.css';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import Script from 'next/script';
+import Navigation from '@/components/navigation/navigation';
+import Footer from '@/components/footer/footer';
+import Dialog, { useDialogState } from '@/components/dialog/dialog';
+const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
 export default function Home() {
+  const dialogState = useDialogState();
   return (
     <>
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet"
-      />
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet"
+        />
+        <title>Narkins Builders - Home Page</title>
+      </Head>
       <style dangerouslySetInnerHTML={{
         __html: `
             .parallax {
@@ -53,77 +64,45 @@ export default function Home() {
       }`}} type="text/css" />
       {/* Modal */}
       <meta data-rh="true" name="theme-color" content="#000000" />
-      <div
-        className="modal fade"
-        id="get-more-information"
-        tabIndex={-1}
-        aria-labelledby="get-more-info"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content rounded-1">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel" />
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
-            </div>
-            <div className="modal-body">
-              <iframe
-                src="https://narkinsbuilders.com/embedded-contact-form/"
-                loading="lazy"
-                style={{ height: "80vh", width: "100%" }}
-                frameBorder={0}
-              />
-            </div>
-            <div className="modal-footer"></div>
-          </div>
-        </div>
-      </div>
       <div className="parallax">
-        <link
+        {/* <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
           crossOrigin="anonymous"
-        />
+        /> */}
         <div
           style={{
             height: "80%",
             paddingBottom: "15rem",
             width: "100vw",
-            backgroundPosition: "center top",
-            background:
-              'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsAppVideo2024-04-21at4.39.55AM-ezgif.com-video-to-webp-converter.webp")',
-            backgroundSize: "100% 100%",
-            backgroundRepeat: "no-repeat"
+            position: 'relative',
           }}
         >
-          <div className="container">
+          <img src="https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsAppVideo2024-04-21at4.39.55AM-ezgif.com-video-to-webp-converter.webp" style={{
+            width: '100%', height: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
+          }} />
+          <div className="container mx-auto px-4">
             <div className="row">
               <div className="col-md-12 text-white">
+                {/* <Navigation transparent={true}/> */}
                 <nav
                   className="navbar bg-dark navbar-sticky navbar-expand-lg text-white bg-transparent"
-                  style={{}}
                   data-bs-theme="dark"
                 >
                   <div className="container-fluid">
-                    <div className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="#">
                       <img
-                        src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png"
+                        src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png" loading="lazy"
                         style={{ width: "5rem", height: "5rem" }}
                       />
-                    </div>
+                    </a>
                     <button
                       className="navbar-toggler"
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#navbarScroll"
                       aria-controls="navbarScroll"
-                      aria-expanded="false"
+                      aria-expanded="true"
                       aria-label="Toggle navigation"
                     >
                       <span className="navbar-toggler-icon" />
@@ -187,25 +166,26 @@ export default function Home() {
                 className="col-md-12 text-center text-white"
                 style={{ marginTop: "10rem" }}
               >
-                <p className="caption">
+                <p className="caption hidden -lg:block">
                   <strong>Welcome to</strong>
                 </p>
-                <h2 className="display-4">Narkins Builders</h2>
-                <div className="text-gray">Creating Iconic Living Experiences.</div>
-                <br />
+                <h2 className="text-4xl lg:text-6xl font-bold">Narkins Builders</h2>
+                <div className="text-gray leading-relaxed">
+                  Creating Iconic Living Experiences.
+                </div>
                 <div
-                  className="d-flex"
+                  className="d-flex mt-[4rem]"
                   style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
                 >
                   <button
                     type="button"
-                    className="btn btn-light"
+                    className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                     data-bs-toggle="modal"
                     data-bs-target="#get-more-information"
                   >
                     Get more information
                   </button>
-                  <button type="button" className="btn btn-outline-light d-none">
+                  <button type="button" className="btn btn-outline-light hidden">
                     Light
                   </button>
                 </div>
@@ -214,310 +194,102 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Dialog title='Get More Information — Narkins Builders' open={false} onClose={function (): void {
+        throw new Error('Function not implemented.');
+      }} body={
+        <iframe
+          src="https://narkinsbuilders.com/embedded-contact-form/"
+          loading="lazy"
+          style={{ height: "80vh", width: "100%" }}
+          frameBorder={0}
+        />} showButtons={false} cancelButton={{
+          title: '',
+          onClick: function (): void {
+            throw new Error('Function not implemented.');
+          }
+        }} acceptButton={{
+          title: '',
+          onClick: function (): void {
+            throw new Error('Function not implemented.');
+          }
+        }} />
       {/* Page section example for content below the video header */}
-      <section
-        className="text-white"
-        style={{
-          display: "flex",
-          maxHeight: "40rem",
-          overflow: "hidden",
-          background: "black"
-        }}
-        c="#E85431;"
-      >
-        <div
-          className="d-none d-lg-block d-xl-block d-md-block"
-          style={{ height: "auto", width: "50vw" }}
-        >
-          <div
-            id="nbr-s"
-            className="carousel carousel-dark slide h-100"
-            data-bs-interval={2500}
-            data-bs-touch="true"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item active border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>
-              <div className="carousel-item  border-rounded">
-                <img
-                  src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
-                  className="d-block"
-                  style={{ height: "auto" }}
-                  alt="..."
-                />
-              </div>{" "}
-            </div>
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#nbr-s"
-              data-bs-slide="prev"
-            >
-              <span className="carousel-control-prev-icon" aria-hidden="true" />
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#nbr-s"
-              data-bs-slide="next"
-            >
-              <span className="carousel-control-next-icon" aria-hidden="true" />
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-        <div className="py-5 container">
-          <div className="row">
-            <div className="col-md-6 d-lg-none d-xl-none">
-              <div
-                id="nbr"
-                className="carousel carousel-dark slide"
-                data-bs-touch="true"
-                data-bs-interval={2500}
-                data-bs-ride="carousel"
-              >
-                <div
-                  className="carousel-inner rounded-1"
-                  style={{ maxHeight: "30rem" }}
-                >
-                  <div className="carousel-item rounded-1 active border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="carousel-item rounded-1  border-rounded">
-                    <img
-                      src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
-                      className="d-block rounded-1"
-                      style={{ width: "100%", height: "auto" }}
-                      alt="..."
-                    />
-                  </div>{" "}
-                </div>
-                <button
-                  className="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#nbr"
-                  data-bs-slide="prev"
-                >
-                  <span className="carousel-control-prev-icon" aria-hidden="true" />
-                  <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                  className="carousel-control-next"
-                  type="button"
-                  data-bs-target="#nbr"
-                  data-bs-slide="next"
-                >
-                  <span className="carousel-control-next-icon" aria-hidden="true" />
-                  <span className="visually-hidden">Next</span>
-                </button>
-              </div>
-            </div>
-            <div
-              className="col-md-6 mx-auto py-4"
-              style={{
-                display: "flex",
-                height: "100%",
-                paddingTop: "5rem",
-                flexDirection: "column"
-              }}
-            >
-              <div style={{ flexGrow: "1 1 auto" }} />
-              <p className="caption d-none">
-                <strong>Welcome to</strong>
-              </p>
-              <h2 className="display-4">Narkin Boutique Residency</h2>
-              <div className="text-gray">
-                Conveniently situated just two minutes from the main gate of Bahria
-                Town Karachi, presents a selection of luxurious 2, 3, and 4-bedroom
-                apartments. Schedule your free tour today and experience refined
-                living at its finest!
-                <br />
-                <a
-                  type="button"
-                  href="https://narkinsbuilders.com/narkins-boutique-residency/"
-                  className="btn btn-warning my-4"
-                >
-                  Project Details
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Page section example for content below the video header */}
-      <section
-        className="text-white"
-        style={{
-          height: "40rem",
-          display: "flex",
-          backgroundPosition: "center top",
-          background:
-            "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp)",
-          backgroundAttachment: "fixed"
-        }}
-      >
-        <div className="py-5 container">
-          <div className="row">
-            <div
-              className="col-md-6 mx-auto py-4"
-              style={{
-                display: "flex",
-                height: "100%",
-                paddingTop: "5rem",
-                flexDirection: "column"
-              }}
-            >
-              <div style={{ flexGrow: "1 1 auto" }} />
-              <p className="caption d-none">
-                <strong>Welcome to</strong>
-              </p>
-              <h2 className="display-4">Hill Crest Residency</h2>
-              <div className="text-gray">
-                Conveniently situated just two minutes from the main gate of Bahria
-                Town Karachi, presents a selection of luxurious 2, 3, and 4-bedroom
-                apartments. Schedule your free tour today and experience refined
-                living at its finest!
-                <br />
-                <a
-                  type="button"
-                  href="https://narkinsbuilders.com/hill-crest-residency/"
-                  className="btn btn-warning my-4"
-                >
-                  Project Details
-                </a>
-              </div>
-            </div>
-            <div className="col-md-6 d-block d-lg-none d-xl-none">
-              <img
-                src="https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp"
-                className="rounded-1"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          className="d-none d-lg-block d-xl-block d-md-block"
-          style={{ maxWidth: "50vw" }}
-        >
-          <img
-            className=""
-            style={{ width: "100%", minHeight: "100%" }}
-            src="https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp"
+      <section className="text-white h-[70vh] flex overflow-hidden bg-black">
+        <div className="hidden lg:flex xl:flex md:flex flex-grow w-1/2">
+          <Carousel
+            id='carousel'
+            swipe hideArrows={false} autoPlay slideShow loop
+            hideIndicators={false} keyboard displayMode="default" interval={10000}
+            className="flex-1 h-full min-w-[50vw]" style={{ background: 'black' }}
+            dataSource={[
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg",
+              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
+            ].map(i => ({ image: i }))}
           />
         </div>
+        <div className="container py-5 mx-auto px-4">
+          <div className="flex flex-col justify-center h-full md:flex-row">
+            <div className="lg:hidden xl:hidden md:hidden w-full">
+              <Carousel
+                id='carousel'
+                swipe hideArrows={false} autoPlay slideShow loop
+                hideIndicators={false} keyboard displayMode="default" interval={10000}
+                className="rounded w-full"
+                dataSource={[
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
+                ].map(i => ({ image: i }))}
+              />
+            </div>
+            <div className="md:w-1/2 py-10 mt-[10%]">
+              <p className="caption hidden -lg:block">
+                <strong>Welcome to</strong>
+              </p>
+              <h2 className="text-4xl lg:text-6xl font-bold mb-4">Narkin Boutique Residency</h2>
+              <div className="text-gray leading-relaxed">
+                Conveniently situated just two minutes from the main gate of Bahria Town Karachi, Narkin Boutique Residency presents a selection of luxurious 2, 3, and 4-bedroom apartments. Schedule your free tour today and experience refined living at its finest!
+                <br />
+                <a href="https://narkinsbuilders.com/narkins-boutique-residency/" className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-4">Project Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-      <section style={{ backgroundColor: "#f3f2f2" }} className="bg-sm-black">
-        <div className="py-5 container">
+      {/* Page section example for content below the video header */}
+      <section className="text-white h-[70vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp)" }}>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col justify-center h-full md:flex-row">
+            <div className="md:w-1/2 py-10">
+              <p className="caption hidden -lg:block">
+                <strong>Welcome to</strong>
+              </p>
+              <h2 className="text-4xl lg:text-6xl font-bold mb-4">Hill Crest Residency</h2>
+              <div className="text-gray leading-relaxed">
+                Conveniently situated just two minutes from the main gate of Bahria Town Karachi, Hill Crest Residency presents a selection of luxurious 2, 3, and 4-bedroom apartments. Schedule your free tour today and experience refined living at its finest!
+                <br />
+                <a href="https://narkinsbuilders.com/hill-crest-residency/" className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-4">Project Details</a>
+              </div>
+            </div>
+            <div className="hidden md:block md:w-1/2 ml-[5rem]">
+              <img src="https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-gray-100">
+        <div className="py-5 container mx-auto px-4">
           <div className="row">
             <div
               className="col-md-12 mx-auto py-4 text-center"
@@ -529,11 +301,13 @@ export default function Home() {
               }}
             >
               <div style={{ flexGrow: "1 1 auto" }} />
-              <p className="caption d-none">
+              <p className="caption hidden">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="display-4">Completed Projects</h2>
-              <div className="text-gray">We always delivered what we promised.</div>
+              <h2 className="text-4xl lg:text-6xl font-bold mb-4">Completed Projects</h2>
+              <div className="text-gray leading-relaxed">
+                We always delivered what we promised.
+              </div>
             </div>
             <div
               className="col-md-8 mx-auto py-4"
@@ -544,106 +318,18 @@ export default function Home() {
                 flexDirection: "column"
               }}
             >
-              <div
-                id="carouselExampleCaptions1"
-                className="rounded-circle parallax-layer carousel slide"
-                data-bs-ride="carousel"
-              >
-                <div className="carousel-indicators">
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions1"
-                    data-bs-slide-to={0}
-                    className="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  />
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions1"
-                    data-bs-slide-to={1}
-                    aria-label="Slide 2"
-                  />
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions1"
-                    data-bs-slide-to={2}
-                    aria-label="Slide 3"
-                  />
-                </div>
-                <div className="carousel-inner">
-                  <div className="carousel-item active">
-                    <a href="https://narkinsbuilders.com/completed-projects/">
-                      <img
-                        src="https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp"
-                        className="d-block rounded-2 w-100"
-                        alt="..."
-                      />
-                    </a>
-                    <div className="carousel-caption d-none -d-md-block">
-                      <h5>First slide label</h5>
-                      <p>
-                        Some representative placeholder content for the first slide.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <a href="https://narkinsbuilders.com/completed-projects/">
-                      <img
-                        src="https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp"
-                        className="d-block rounded-2 w-100"
-                        alt="..."
-                      />
-                    </a>
-                    <div className="carousel-caption d-none -d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>
-                        Some representative placeholder content for the second
-                        slide.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="carousel-item">
-                    <a href="https://narkinsbuilders.com/completed-projects/">
-                      <img
-                        src="https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp"
-                        className="d-block rounded-2 w-100"
-                        alt="..."
-                      />
-                    </a>
-                    <div className="carousel-caption d-none -d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>
-                        Some representative placeholder content for the third slide.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <button
-                  className="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions1"
-                  data-bs-slide="prev"
-                >
-                  <span className="carousel-control-prev-icon" aria-hidden="true" />
-                  <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                  className="carousel-control-next"
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions1"
-                  data-bs-slide="next"
-                >
-                  <span className="carousel-control-next-icon" aria-hidden="true" />
-                  <span className="visually-hidden">Next</span>
-                </button>
-              </div>
+              <Carousel swipe hideArrows autoPlay slideShow loop
+                hideIndicators={false} keyboard displayMode="3d" interval={10000} className='rounded w-full mx-auto -h-full' style={{ background: 'rgb(243 244 246)', maxWidth: '70rem', height: '80vh', maxHeight: '30rem' }} dataSource={[
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp"
+                ].map(i => ({ image: i }))}></Carousel>
             </div>
           </div>
         </div>
       </section>
-      <section style={{ background: "black", color: "white!important" }}>
-        <div className="py-5 container">
+      <section className='bg-black'>
+        <div className="py-5 container mx-auto px-4">
           <div className="row">
             <div
               className="col-md-12 mx-auto py-4 text-center"
@@ -655,10 +341,8 @@ export default function Home() {
               }}
             >
               <div style={{ flexGrow: "1 1 auto" }} />
-              <p className="caption d-none">
-                <strong>Welcome to</strong>
-              </p>
-              <h2 className="display-4">Trusted Partners</h2>
+              <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-50 dark:text-white">Trusted Partners</h2>
+              <p className="mb-8 font-light text-gray-50 lg:mb-16 sm:text-xl dark:text-gray-400"></p>
               <div className="text-gray"></div>
             </div>
             <style
@@ -673,296 +357,102 @@ export default function Home() {
                   '\n                    .scroll-container {\n                    position: relative;\n                    overflow-x: scroll;\n                    width: 100%; background:black;\n                    }\n                    .scroll-containe-r::before,\n                    .scroll-containe-r::after {\n                    content: "";\n                    position: absolute;\n                    top: 0;\n                    width: 20px; /* Adjust the width of the shadow as needed */\n                    height: 100%;\n                    pointer-events: none;\n                    }\n                    .scroll-containe-r::before {\n                    left: 0;\n                    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                    .scroll-containe-r::after {\n                    right: 0;\n                    background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                '
               }}
             />
-            <div
-              className="col-md-8 scrollbox trusted-partners mx-auto py-4 d-flex scroll-container"
-              style={{ gap: "1rem", scrollSnapType: "x mandatory" }}
-            >
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-01-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/02/Trusted-Partners-08-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/02/Trusted-Partners-09-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-06-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-05-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-04-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-01-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/02/Trusted-Partners-08-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/02/Trusted-Partners-09-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-06-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-05-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-04-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />
-              <img
-                src="https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png"
-                className="rounded-2 border"
-                style={{
-                  display: "inline-block",
-                  scrollSnapAlign: "start",
-                  width: "10rem",
-                  height: "auto"
-                }}
-              />{" "}
+            <div className="mx-auto py-4 flex overflow-x-auto snap-x gap-4">
+              {[
+                "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-01-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/02/Trusted-Partners-08-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/02/Trusted-Partners-09-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-06-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-05-320x202.png",
+                "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-04-320x202.png"
+              ].map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt={`Trusted Partner ${index + 1}`}
+                  className="inline-block snap-center rounded-lg border w-40 h-auto"
+                  loading="lazy"
+                />
+              ))}
             </div>
+
           </div>
         </div>
       </section>
-      <section style={{ color: "#000" }}>
-        <div className="container py-5">
-          <div className="row d-flex justify-content-center">
-            <div className="col-md-10 col-xl-8 text-center">
-              <h3 className="display-4 mb-4">Testimonials</h3>
-              <p className="mb-4 pb-2 mb-md-5 pb-md-0"></p>
-            </div>
+      <section className="bg-white dark:bg-gray-900">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+          <div className="mx-auto max-w-screen-sm">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Testimonials</h2>
+            <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
           </div>
-          <div className="row text-center">
-            <div className="col-md-4 mb-4 mb-md-0">
-              <div className="card">
-                <div className="card-body py-4 mt-2">
-                  <h5 className="font-weight-bold">Saad Arshad</h5>
-                  <ul className="list-unstyled d-flex justify-content-center">
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star-half-alt fa-sm text-info" />
-                    </li>
+          <div className="grid mb-8 lg:mb-12 gap-2 gap-y-2 lg:grid-cols-2">
+            {[
+              {
+                name: "Saad Arshad",
+                stars: [true, true, true, true, "half"],
+                testimonial:
+                  "Highly committed to delivering in timelines, I wholeheartedly recommend considering investment in projects by Narkin’s Builders.",
+              },
+              {
+                name: "Arsalan",
+                stars: [true, true, true, true, true],
+                testimonial:
+                  "Smooth booking experience, very transparent throughout the process.",
+              },
+              {
+                name: "Umair Iqrar",
+                stars: [true, true, true, true, false],
+                testimonial:
+                  "I decided to invest during the initial launch phase, and after just two years, I’ve seen substantial returns. It’s been a fantastic investment opportunity!",
+              },
+            ].map((item, index) => (
+              <figure key={index} className="flex flex-col justify-center items-center p-8 text-center bg-white border-b border-gray-200 md:p-12 lg:border rounded">
+                <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+
+                  </h3>
+                  <ul className="flex justify-center my-4">
+                    {item.stars.map((star, starIndex) => (
+                      <li key={starIndex}>
+                        <i
+                          className={`fas ${star === true
+                            ? "fa-star text-yellow-400"
+                            : star === "half"
+                              ? "fa-star-half-alt text-yellow-400"
+                              : "far fa-star text-yellow-400"
+                            }`}
+                        />
+                      </li>
+                    ))}
                   </ul>
-                  <p className="mb-2">
-                    <i className="fas fa-quote-left pe-2" />
-                    Highly committed to delivering in timelines, I wholeheartedly
-                    recommend considering investment in projects by Narkin’s
-                    Builders.
+                  <p className="my-4">
+                    {item.testimonial}
                   </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 mb-4 mb-md-0">
-              <div className="card">
-                <div className="card-body py-4 mt-2">
-                  <h5 className="font-weight-bold">Arsalan</h5>
-                  <ul className="list-unstyled d-flex justify-content-center">
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                  </ul>
-                  <p className="mb-2">
-                    <i className="fas fa-quote-left pe-2" />
-                    Smooth booking experience, very transparent throughout the
-                    process.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4 mb-0">
-              <div className="card">
-                <div className="card-body py-4 mt-2">
-                  <h5 className="font-weight-bold">Umair Iqrar</h5>
-                  <ul className="list-unstyled d-flex justify-content-center">
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="fas fa-star fa-sm text-info" />
-                    </li>
-                    <li>
-                      <i className="far fa-star fa-sm text-info" />
-                    </li>
-                  </ul>
-                  <p className="mb-2">
-                    <i className="fas fa-quote-left pe-2" />I decided to invest
-                    during the initial launch phase, and after just two years, I’ve
-                    seen substantial returns. It’s been a fantastic investment
-                    opportunity!
-                  </p>
-                </div>
-              </div>
-            </div>
+                </blockquote>
+                <figcaption className="flex justify-center items-center space-x-3">
+                  {/* <img
+                    className="w-9 h-9 rounded-full"
+                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
+                    alt="profile picture"
+                  /> */}
+                  <div className="space-y-0.5 font-medium dark:text-white text-left">
+                    <div>{item.name}</div>
+                    <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Client
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
           </div>
+          {/* <div className="text-center">
+            <a href="#" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Show more...</a>
+          </div> */}
         </div>
       </section>
-      <svg xmlns="http://www.w3.org/2000/svg" className="d-none">
+      <svg xmlns="http://www.w3.org/2000/svg" className="hidden">
         <symbol id="bootstrap" viewBox="0 0 118 94">
           <title>Bootstrap</title>
           <path
@@ -1009,7 +499,8 @@ export default function Home() {
             "\n            .bd-placeholder-img {\n            font-size: 1.125rem;\n            text-anchor: middle;\n            -webkit-user-select: none;\n            -moz-user-select: none;\n            user-select: none;\n            }\n            @media (min-width: 768px) {\n            .bd-placeholder-img-lg {\n            font-size: 3.5rem;\n            }\n            }\n            .b-example-divider {\n            width: 100%;\n            height: 3rem;\n            background-color: rgba(0, 0, 0, .1);\n            border: solid rgba(0, 0, 0, .15);\n            border-width: 1px 0;\n            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);\n            }\n            .b-example-vr {\n            flex-shrink: 0;\n            width: 1.5rem;\n            height: 100vh;\n            }\n            .bi {\n            vertical-align: -.125em;\n            fill: currentColor;\n            }\n            .nav-scroller {\n            position: relative;\n            z-index: 2;\n            height: 2.75rem;\n            overflow-y: hidden;\n            }\n            .nav-scroller .nav {\n            display: flex;\n            flex-wrap: nowrap;\n            padding-bottom: 1rem;\n            margin-top: -1px;\n            overflow-x: auto;\n            text-align: center;\n            white-space: nowrap;\n            -webkit-overflow-scrolling: touch;\n            }\n            .btn-bd-primary {\n            --bd-violet-bg: #712cf9;\n            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;\n            --bs-btn-font-weight: 600;\n            --bs-btn-color: var(--bs-white);\n            --bs-btn-bg: var(--bd-violet-bg);\n            --bs-btn-border-color: var(--bd-violet-bg);\n            --bs-btn-hover-color: var(--bs-white);\n            --bs-btn-hover-bg: #6528e0;\n            --bs-btn-hover-border-color: #6528e0;\n            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);\n            --bs-btn-active-color: var(--bs-btn-hover-color);\n            --bs-btn-active-bg: #5a23c8;\n            --bs-btn-active-border-color: #5a23c8;\n            }\n            .bd-mode-toggle {\n            z-index: 1500;\n            }\n            .bd-mode-toggle .dropdown-menu .active .bi {\n            display: block !important;\n            }\n        "
         }}
       />
-      <footer className="py-5 mt-5 bg-black text-white">
+      <Footer />
+      {/* <footer className="py-5 mt-5 bg-black text-white">
         <div className="container">
           <div className="row">
             <ul className="nav col-md-3 justify-content-start list-unstyled d-flex">
@@ -1079,7 +570,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="col-md-5 offset-md-1 d-none mb-3">
+            <div className="col-md-5 offset-md-1 hidden mb-3">
               <form>
                 <h5>Subscribe to our newsletter</h5>
                 <p>Monthly digest of what's new and exciting from us.</p>
@@ -1105,7 +596,7 @@ export default function Home() {
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7231.128353179299!2d67.31886!3d25.014921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34bad638fbbb1%3A0x4aa67ba370e4667b!2sNarkins%20Boutique%20Residency!5e0!3m2!1sen!2s!4v1713640558555!5m2!1sen!2s"
                   style={{ border: 0, height: "20rem", width: "100%" }}
-                  allowFullScreen=""
+                  allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -1120,7 +611,7 @@ export default function Home() {
               </a>
               . All rights reserved.
             </p>
-            <ul className="list-unstyled d-none">
+            <ul className="list-unstyled hidden">
               <li className="ms-3">
                 <a
                   className="link-body-emphasis"
@@ -1164,7 +655,20 @@ export default function Home() {
             </ul>
           </div>
         </div>
-      </footer>
+      </footer> */}
+      <script>
+        {`  window.onclick = function (e) {
+                e.preventDefault();
+                if (e.target.localName == 'a') {
+                    // https://narkinsbuilders.com/
+                  window.parent.postMessage({target: e.target.getAttribute('href'), type: "loc"}, 'http://localhost:3000/'); // Change URL to your parent frame's domain
+                }
+            }
+            window.onload = () => {
+                  window.parent.postMessage({px: document.body.clientHeight, type: "height"}, 'http://localhost:3000/'); // Change URL to your parent frame's domain
+                //   alert("a")
+            }`}
+      </script>
     </>
   )
 }
