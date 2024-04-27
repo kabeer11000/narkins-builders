@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, Fragment } from 'react'
 import 'smart-webcomponents-react/source/styles/smart.default.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -6,6 +6,32 @@ import Script from 'next/script';
 import Navigation from '@/components/navigation/navigation';
 import Footer from '@/components/footer/footer';
 import Dialog, { useDialogState } from '@/components/dialog/dialog';
+import { Disclosure, Menu, Popover, Transition } from '@headlessui/react'
+import { ArrowPathIcon, Bars3Icon, BellIcon, ChartPieIcon, ChevronDownIcon, CursorArrowRaysIcon, FingerPrintIcon, PhoneIcon, PlayCircleIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
+
+const navigation = [
+  { name: 'Dashboard', href: '#', current: true },
+  { name: 'Team', href: '#', current: false },
+  { name: 'Projects', href: '#', current: false },
+  { name: 'Calendar', href: '#', current: false },
+]
+
+const solutions = [
+  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
+  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'Security', description: "Your customers' data will be safe and secure", href: '#', icon: FingerPrintIcon },
+  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
+  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+]
+const callsToAction = [
+  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
+  { name: 'Contact sales', href: '#', icon: PhoneIcon },
+]
+
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
 export default function Home() {
   const dialogState = useDialogState();
@@ -20,7 +46,7 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
         />
-        <title>Narkins Builders - Home Page</title>
+        <title>Narkin's Builders - Home Page</title>
       </Head>
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -78,89 +104,136 @@ export default function Home() {
             position: 'relative',
           }}
         >
-          <img src="https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsAppVideo2024-04-21at4.39.55AM-ezgif.com-video-to-webp-converter.webp" style={{
-            width: '100%', height: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
+          <video autoplay src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm" style={{
+             minHeight: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
           }} />
           <div className="container mx-auto px-4">
             <div className="row">
               <div className="col-md-12 text-white">
-                {/* <Navigation transparent={true}/> */}
-                <nav
-                  className="navbar bg-dark navbar-sticky navbar-expand-lg text-white bg-transparent"
-                  data-bs-theme="dark"
-                >
-                  <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                      <img
-                        src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png" loading="lazy"
-                        style={{ width: "5rem", height: "5rem" }}
-                      />
-                    </a>
-                    <button
-                      className="navbar-toggler"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#navbarScroll"
-                      aria-controls="navbarScroll"
-                      aria-expanded="true"
-                      aria-label="Toggle navigation"
-                    >
-                      <span className="navbar-toggler-icon" />
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarScroll">
-                      <ul className="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll">
-                        <li className="nav-item">
-                          <a
-                            className="nav-link active"
-                            aria-current="page"
-                            href="/"
-                          >
-                            Home
-                          </a>
-                        </li>
-                        <li className="nav-item dropdown">
-                          <a
-                            className="nav-link dropdown-toggle"
-                            href="#"
-                            role="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                          >
-                            Current Projects
-                          </a>
-                          <ul className="dropdown-menu">
-                            <li>
-                              <a
-                                className="dropdown-item"
-                                href="https://narkinsbuilders.com/narkins-boutique-residency/"
-                              >
-                                Narkins Boutique Residency
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                className="dropdown-item"
-                                href="https://narkinsbuilders.com/hill-crest-residency/"
-                              >
-                                Hill Crest Residency
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="nav-item">
-                          <a className="nav-link" href="/completed-projects">
-                            Completed Projects
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a className="nav-link" href="/about-us">
-                            About Us
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </nav>
+                <Disclosure as="nav" className="bg-transparent">
+                  {({ open }) => (
+                    <>
+                      <div className="mx-auto pt-5 max-w-7xl px-2 sm:px-6 lg:px-8">
+                        <div className="relative flex h-16 items-center justify-between">
+                          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                            {/* Mobile menu button*/}
+                            <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                              <span className="absolute -inset-0.5" />
+                              <span className="sr-only">Open main menu</span>
+                              {open ? (
+                                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                              ) : (
+                                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                              )}
+                            </Disclosure.Button>
+                          </div>
+                          <div className="flex flex-1 pt-5 items-center justify-center sm:items-stretch sm:justify-start">
+                            <div className="flex flex-shrink-0 items-center">
+                              <img
+                                src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png" loading="lazy"
+                                style={{ width: "5rem", height: "5rem" }}
+                                className="h-8 w-auto"
+                              />
+                            </div>
+                            <div className="hidden pt-5 sm:ml-6 sm:block">
+                              <div className="flex space-x-4">
+                                {navigation.map((item) => (
+                                  <a
+                                    key={item.name}
+                                    href={item.href}
+                                    className={classNames(
+                                      item.current ? '-bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700- hover:text-white',
+                                      'rounded-md px-3 py-2 text-sm font-medium'
+                                    )}
+                                    aria-current={item.current ? 'page' : undefined}
+                                  >
+                                    {item.name}
+                                  </a>
+                                ))}
+                                <Popover className="relative">
+                                  <Popover.Button className="inline-flex items-center gap-x-2 px-2 pt-[0.43rem] text-sm font-semibold leading-6 text-gray-300 hover:text-white">
+                                    <span>Solutions</span>
+                                    <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                                  </Popover.Button>
+                                  <Transition
+                                    as={Fragment}
+                                    enter="transition ease-out duration-200"
+                                    enterFrom="opacity-0 translate-y-1"
+                                    enterTo="opacity-100 translate-y-0"
+                                    leave="transition ease-in duration-150"
+                                    leaveFrom="opacity-100 translate-y-0"
+                                    leaveTo="opacity-0 translate-y-1">
+                                    <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
+                                      <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+                                        <div className="p-4">
+                                          {solutions.map((item) => (
+                                            <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 -hover:bg-gray-50">
+                                              <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg -bg--gray-50 group-hover:bg-white">
+                                                <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+                                              </div>
+                                              <div>
+                                                <a href={item.href} className="font-semibold text-gray-900">
+                                                  {item.name}
+                                                  <span className="absolute inset-0" />
+                                                </a>
+                                                <p className="mt-1 text-gray-600">{item.description}</p>
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
+                                        <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                                          {callsToAction.map((item) => (
+                                            <a
+                                              key={item.name}
+                                              href={item.href}
+                                              className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 -hover:bg-gray-100"
+                                            >
+                                              <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
+                                              {item.name}
+                                            </a>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    </Popover.Panel>
+                                  </Transition>
+                                </Popover>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                            <button
+                              type="button"
+                              className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                            >
+                              <span className="absolute -inset-1.5" />
+                              <span className="sr-only">View notifications</span>
+                              <BellIcon className="h-6 w-6" aria-hidden="true" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <Disclosure.Panel className="sm:hidden">
+                        <div className="space-y-1 px-2 pb-3 pt-2">
+                          {navigation.map((item) => (
+                            <Disclosure.Button
+                              key={item.name}
+                              as="a"
+                              href={item.href}
+                              className={classNames(
+                                item.current ? 'bg-gray-900- text-white' : 'text-gray-300 hover:bg-gray-700- hover:text-white',
+                                'block rounded-md px-3 py-2 text-base font-medium'
+                              )}
+                              aria-current={item.current ? 'page' : undefined}
+                            >
+                              {item.name}
+                            </Disclosure.Button>
+                          ))}
+                        </div>
+                      </Disclosure.Panel>
+                    </>
+                  )}
+                </Disclosure>
               </div>
               <div
                 className="col-md-12 text-center text-white"
@@ -169,7 +242,7 @@ export default function Home() {
                 <p className="caption hidden -lg:block">
                   <strong>Welcome to</strong>
                 </p>
-                <h2 className="text-4xl lg:text-6xl font-bold">Narkins Builders</h2>
+                <h2 className="text-4xl lg:text-6xl font-bold">{`Narkin's Builders`}</h2>
                 <div className="text-gray leading-relaxed">
                   Creating Iconic Living Experiences.
                 </div>
@@ -179,7 +252,7 @@ export default function Home() {
                 >
                   <button
                     type="button"
-                    className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                    className="bg-white hover:bg-gray-100- text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                     data-bs-toggle="modal"
                     data-bs-target="#get-more-information"
                   >
@@ -194,7 +267,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Dialog title='Get More Information — Narkins Builders' open={false} onClose={function (): void {
+      <Dialog title={`Get More Information — Narkin's Builders`} open={false} onClose={function (): void {
         throw new Error('Function not implemented.');
       }} body={
         <iframe
@@ -214,7 +287,7 @@ export default function Home() {
           }
         }} />
       {/* Page section example for content below the video header */}
-      <section className="text-white h-[70vh] flex overflow-hidden bg-black">
+      <section className="text-white flex overflow-hidden bg-black">
         <div className="hidden lg:flex xl:flex md:flex flex-grow w-1/2">
           <Carousel
             id='carousel'
@@ -233,8 +306,8 @@ export default function Home() {
             ].map(i => ({ image: i }))}
           />
         </div>
-        <div className="container py-5 mx-auto px-4">
-          <div className="flex flex-col justify-center h-full md:flex-row">
+        <div className="container h-full py-[2.5rem] mx-auto px-4">
+          <div className="flex flex-col pt-10 justify-center h-full md:flex-row">
             <div className="lg:hidden xl:hidden md:hidden w-full">
               <Carousel
                 id='carousel'
@@ -253,14 +326,13 @@ export default function Home() {
                 ].map(i => ({ image: i }))}
               />
             </div>
-            <div className="md:w-1/2 py-10 mt-[10%]">
+            <div className="md:w-1/2 py-10 mt-[5%]">
               <p className="caption hidden -lg:block">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-4xl lg:text-6xl font-bold mb-4">Narkin Boutique Residency</h2>
+              <h2 className="text-4xl lg:text-6xl font-bold mb-4">{`Narkin's Boutique Residency`}</h2>
               <div className="text-gray leading-relaxed">
-                Conveniently situated just two minutes from the main gate of Bahria Town Karachi, Narkin Boutique Residency presents a selection of luxurious 2, 3, and 4-bedroom apartments. Schedule your free tour today and experience refined living at its finest!
-                <br />
+                Narkin’s Boutique Residency in Bahria Town Karachi offers luxury and bespoke design in a Heritage Commercial area. With 29 floors, it features 2, 3, and 4-bedroom luxury apartments with panoramic views. Residents enjoy access to over 10 premium amenities, including fitness facilities, indoor swimming pools, and recreational areas. Experience the epitome of sophistication at Narkin’s Boutique Residency.                <br />
                 <a href="https://narkinsbuilders.com/narkins-boutique-residency/" className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-4">Project Details</a>
               </div>
             </div>
@@ -296,7 +368,6 @@ export default function Home() {
               style={{
                 display: "flex",
                 height: "100%",
-                paddingTop: "5rem",
                 flexDirection: "column"
               }}
             >
@@ -306,7 +377,7 @@ export default function Home() {
               </p>
               <h2 className="text-4xl lg:text-6xl font-bold mb-4">Completed Projects</h2>
               <div className="text-gray leading-relaxed">
-                We always delivered what we promised.
+                We always deliver what we promise.
               </div>
             </div>
             <div
@@ -314,7 +385,7 @@ export default function Home() {
               style={{
                 display: "flex",
                 height: "100%",
-                paddingTop: "5rem",
+                paddingTop: "0rem",
                 flexDirection: "column"
               }}
             >
@@ -322,7 +393,8 @@ export default function Home() {
                 hideIndicators={false} keyboard displayMode="3d" interval={10000} className='rounded w-full mx-auto -h-full' style={{ background: 'rgb(243 244 246)', maxWidth: '70rem', height: '80vh', maxHeight: '30rem' }} dataSource={[
                   "https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp",
                   "https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp"
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp",
+                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-28-at-12.49.08-AM.jpeg"
                 ].map(i => ({ image: i }))}></Carousel>
             </div>
           </div>
@@ -336,13 +408,17 @@ export default function Home() {
               style={{
                 display: "flex",
                 height: "100%",
-                paddingTop: "5rem",
                 flexDirection: "column"
               }}
             >
               <div style={{ flexGrow: "1 1 auto" }} />
-              <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-50 dark:text-white">Trusted Partners</h2>
-              <p className="mb-8 font-light text-gray-50 lg:mb-16 sm:text-xl dark:text-gray-400"></p>
+              <p className="caption hidden">
+                <strong>Welcome to</strong>
+              </p>
+              <h2 className="text-4xl lg:text-6xl text-white font-bold mb-4">Trusted Partners</h2>
+              <div className="text-gray-100 leading-relaxed">
+                Partners that chose to work with us
+              </div>
               <div className="text-gray"></div>
             </div>
             <style
@@ -357,7 +433,7 @@ export default function Home() {
                   '\n                    .scroll-container {\n                    position: relative;\n                    overflow-x: scroll;\n                    width: 100%; background:black;\n                    }\n                    .scroll-containe-r::before,\n                    .scroll-containe-r::after {\n                    content: "";\n                    position: absolute;\n                    top: 0;\n                    width: 20px; /* Adjust the width of the shadow as needed */\n                    height: 100%;\n                    pointer-events: none;\n                    }\n                    .scroll-containe-r::before {\n                    left: 0;\n                    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                    .scroll-containe-r::after {\n                    right: 0;\n                    background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                '
               }}
             />
-            <div className="mx-auto py-4 flex overflow-x-auto snap-x gap-4">
+            <div className="mx-auto mt-5 py-4 flex overflow-x-auto snap-x gap-4">
               {[
                 "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png",
                 "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png",
@@ -384,7 +460,7 @@ export default function Home() {
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-sm">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Testimonials</h2>
+            <h2 className="text-4xl lg:text-6xl text-gray-900 font-bold mb-4">Testimonials</h2>
             <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
           </div>
           <div className="grid mb-8 lg:mb-12 gap-2 gap-y-2 lg:grid-cols-2">
@@ -565,7 +641,7 @@ export default function Home() {
                 </li>
                 <li className="nav-item mb-2">
                   <a href="#" className="nav-link p-0 -text-body-secondary">
-                    Narkins Boutique Residency
+                    Narkin's Boutique Residency
                   </a>
                 </li>
               </ul>
@@ -656,8 +732,8 @@ export default function Home() {
           </div>
         </div>
       </footer> */}
-      <script>
-        {`  window.onclick = function (e) {
+      <script dangerouslySetInnerHTML={{
+        __html: `window.onclick = function (e) {
                 e.preventDefault();
                 if (e.target.localName == 'a') {
                     // https://narkinsbuilders.com/
@@ -667,8 +743,7 @@ export default function Home() {
             window.onload = () => {
                   window.parent.postMessage({px: document.body.clientHeight, type: "height"}, 'http://localhost:3000/'); // Change URL to your parent frame's domain
                 //   alert("a")
-            }`}
-      </script>
+            }`}} />
     </>
   )
 }
