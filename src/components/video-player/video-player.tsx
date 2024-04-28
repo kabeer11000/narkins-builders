@@ -1,7 +1,7 @@
 import VideoPlayerControls from "@/components/video-player/video-player-controls";
 import { useEffect, useRef, useState } from "react";
 
-export default function VideoPlayer({ src }: { src: string }) {
+export default function VideoPlayer({ src, poster }: { src: string, poster?: string }) {
     const [videoProgress, setVideoProgress] = useState<number>(0);
     const [videoDuration, setVideoDuration] = useState<number>();
     const [isPaused, setIsPaused] = useState(false);
@@ -49,7 +49,7 @@ export default function VideoPlayer({ src }: { src: string }) {
                     onPlayPause={togglePlayPause}
                 />
             </div>
-            <video className="w-full" ref={videoRef} loop muted autoPlay>
+            <video className="w-full" poster={poster} ref={videoRef} loop muted autoPlay>
                 <source src={src} />
             </video>
         </div>

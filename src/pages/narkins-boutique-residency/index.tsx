@@ -7,6 +7,9 @@ import { useState, Fragment } from "react";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Footer from "@/components/footer/footer";
+import { Lightbox } from "@/components/lightbox/lightbox";
+import Link from "next/link";
+import Head from "next/head";
 const people = [
     'Durward Reynolds',
     'Kenton Towne',
@@ -20,31 +23,20 @@ function classNames(...classes) {
 }
 
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
-const categories = ['2 bed', '3 bed', '4 bed'];
+const categories = ['2 Bed', '3 Bed', '4 Bed'];
 const cards = [[
-    { title: '2 Bed Diamond', size: '1276 Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Diamond-HCR-scaled.webp' },
-    { title: '2 Bed Gold', size: '1180 Feet', location: 'Gold Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Gold-HCR-scaled.webp' },
-    { title: '2 Bed Sapphire', size: '881 Feet', location: 'Sapphire Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
+    { title: '2 Bed Gold', size: '1547 Square Feet', location: 'Heritage Club & Danzoo Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/7.Gold-Heritage-club-and-danzoo-safari-view-removebg-preview.png' },
 ], [
-    { title: '3 Bed Platinum', size: '1884 Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
+    { title: '3 Bed Diamond Corner', size: '2184 Square Feet', location: 'Heritage Club & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/6.Diamond-Corner-Heritage-club-and-danzoo-safari-view.png' },
+    { title: '3 Bed Diamond-A', size: '2121 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/5.Diamond-A-jinnah-and-theme-park-view.webp' },
 ], [
-
-    { title: '4 Bed Rhodium', size: '2507 Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
+    { title: '4 Bed Platinum-A', size: '2597 Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/4.Platinum-A-jinnah-and-theme-park-view.png' },
+    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Danzoori Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/3.Platinum-A-1-Corner-jinnah-and-danzoo-safari-view.webp' },
+    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/1.-Platinum-A-1-Corner-jinnah-and-theme-park-view.webp' },
+    { title: '4 Bed Platinum A-1', size: '2486 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/2.Platinum-A-1-jinnah-and-danzoo-safari-view.webp' },
 ]];
 
-const Lightbox = ({ open, onClose, image }: { open: boolean, onClose: () => void, image: string }) => {
-    return (
-        <div onClick={onClose} className={`fixed top-0 left-0 z-[999] flex justify-center items-center transition duration-150 ease-in-out w-[100vw] h-[100vh] ${open ? 'visible' : 'hidden'}`} style={{ background: 'rgba(0, 0, 0, 0.8)', backdropFilter: 'blur(5px)' }}>
-            <div className={'fixed top-0 w-[100vw] h-[5rem] right-0'}>
-                <XCircleIcon width="2rem" height="2rem" className="ml-auto mt-5 mr-5 pointer-cursor" onClick={onClose} color="white" />
-            </div>
-            <img onClick={e => e.stopPropagation()} src={image} className={'w-full h-auto'} />
-        </div>
-    )
-}
 export default function NarkinsBoutiqueResidency() {
-
-    const [selectedPerson, setSelectedPerson] = useState(people[0])
     const [lightbox, setLightbox] = useState({
         open: false, image: ''
     });
@@ -63,28 +55,37 @@ export default function NarkinsBoutiqueResidency() {
 
     return (
         <main>
+            <Head>
+                <title>Narkin's Boutique Residency</title>
+            </Head>
             <Navigation />
             <Lightbox {...lightbox} onClose={() => setLightbox({ ...lightbox, open: false, image: '' })} />
             <div className="bg-white pt-[6rem]">
                 <div className="px-4 bg-neutral-50 relative md:xl:px-0 w-full h-auto max-w-7xl z-index-0 bg-transparent mx-auto my-8 rounded-xl overflow-hidden -md:lg:rounded-none">
-                    <VideoPlayer src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Hill-Crest-03-07-2023.webm" />
+                    <VideoPlayer src="https://narkinsbuilders.com/wp-content/uploads/2024/04/8bdf4bb0-ee43-4993-8b80-de600c75c624.mp4" poster={'https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg'} />
                 </div>
                 <div className="relative isolate overflow-hidden py-20 pt-5 sm:py-[28px]">
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
                         <div className="mx-auto max-w-2xl lg:mx-0">
                             <h2 className="text-4xl font-bold tracking-tight text-black sm:text-7xl">{`Narkin's Boutique Residency`}</h2>
                             <p className="mt-6 text-lg leading-8 text-gray-800">
-                                Our Magnificent and eminent master piece is located at 29-30A Jinnah Avenue,  Just 30 seconds away and nearly 1 km drive from the main gate. We ensure a luxurious and modern lifestyle with all your necessities as well as opulence being taken care of, once you book with us a place of your own in Hill Crest.
+                                Welcome to Narkin's Boutique Residency, where luxury meets bespoke design in the heart of Bahria Town Karachi's Heritage Commercial area. Crafted by "Talent & Taste," our premium high-rise apartments redefine upscale living with their exquisite attention to detail.
                                 <br /><br />
-                                We are currently providing a variety of 2 bed and 3 bed luxury apartments along with lounge and dining that features panoramic view of the beauty of Bahria town. It will surely let you experience the lifestyle you always dreamed for your family and upcoming generations!
+                                Nestled in the esteemed Heritage Commercial area, Narkin's Boutique Residency offers residents unparalleled access to a wealth of amenities and attractions. From exclusive luxury farmhouses and the prestigious Heritage Club to the convenience of Imtiaz Mega, shopping malls, and a bustling food street, everything you desire is just a walk away. Additionally, the 24/7 Shop Stop & PSO ensures your daily needs are effortlessly met.
+                                <br /><br />
+                                With ground + 29 floors, Narkin's Boutique Residency presents a selection of 2, 3, and 4-bedroom luxury apartments, each boasting panoramic views of Bahria Town Karachi. Experience the epitome of sophistication as you unwind in your designer Apartment.
+                                <br /><br />
+                                But the luxury extends beyond your residence. As a resident of Narkin's Boutique Residency, you'll enjoy exclusive access to over 10+ premium amenities designed to enrich your lifestyle. From state-of-the-art fitness facilities to indoor swimming pool and recreational areas, every amenity is tailored to cater to your needs and desires.
+                                <br />
+                                Elevate your lifestyle to new heights with Narkin's Boutique Residency.
                             </p>
                         </div>
                         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
                                 {[{ name: 'Project Info', href: "#our-offerings" }].map((link) => (
-                                    <a key={link.name} className="text-black" href={link.href}>
+                                    <Link key={link.name} className="text-black" href={link.href}>
                                         {link.name} <span aria-hidden="true">&rarr;</span>
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                             <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
@@ -169,11 +170,14 @@ export default function NarkinsBoutiqueResidency() {
                             swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop={false}
                             hideIndicators={false} className="w-full rounded-xl h-[30rem]" displayMode="default"
                             dataSource={[
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/pray-area.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp",
-                            ].map(i => ({ image: i }))}
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp",
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp",
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Snooker.webp",
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp",
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Gym-1.webp",
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Play-Area.webp",
+                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Pool.webp"
+                            ].map((i, _) => ({ image: i, /*label: ['Reception', 'Prayer Area', 'Snooker', 'Grand Lobby', 'Gym', 'Play Area', 'Pool'][_]*/ }))}
                         />
                     </div>
                 </section>
@@ -188,18 +192,14 @@ export default function NarkinsBoutiqueResidency() {
                                 swipe hideArrows={false} autoPlay={true} slideShow={true} loop={true}
                                 hideIndicators={true} className={`w-full rounded-xl ${!matches ? 'aspect-video' : 'h-[40rem]'}`} displayMode="default"
                                 dataSource={[
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h21m35s735.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h26m38s830.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h28m41s223.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h43m54s456.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m02s449.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m08s928.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m28s208.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m47s413.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h25m05s134.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h42m19s559.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h42m36s758.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h42m44s064.jpg"
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0776-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0787-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0797-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-02-22-04h12m09s908-1-scaled.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0771-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0774-1.webp"
                                 ].map(i => ({ image: i }))}
                             />
                         </div>
@@ -208,32 +208,23 @@ export default function NarkinsBoutiqueResidency() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                             {[
                                 [
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h21m35s735.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h26m38s830.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h28m41s223.jpg"
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0776-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0787-1.webp"
                                 ],
                                 [
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h43m54s456.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m02s449.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m08s928.jpg"
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0797-1.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-02-22-04h12m09s908-1-scaled.webp",
+                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp"
                                 ],
-                                [
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m28s208.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h24m47s413.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h25m05s134.jpg"
-                                ],
-                                [
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h42m19s559.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h42m36s758.jpg",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-01-21-01h42m44s064.jpg"
-                                ]
-                            ].map((images, index) => (
-                                <div className="grid gap-4" key={images.join()}>
-                                    {images.slice(0, 2).map((src) => <div key={src}>
-                                        <img className={`h-auto max-w-full rounded-lg`} src={src} alt="" />
-                                    </div>)}
-                                </div>
-                            ))}
+                            ]
+                                .map((images, index) => (
+                                    <div className="grid gap-4" key={images.join()}>
+                                        {images.slice(0, 2).map((src) => <div key={src} className="px-4" onClick={() => openLightbox({ image: src })}>
+                                            <img className={`h-auto max-w-full rounded-lg`} src={src} alt="" />
+                                        </div>)}
+                                    </div>
+                                ))}
                         </div>
                     </div>
                 </section>
@@ -308,7 +299,7 @@ export default function NarkinsBoutiqueResidency() {
                     </div>
                 </section>
             </div>
-            <Footer map={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.564164811388!2d67.31885989999999!3d25.0149214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34bad638fbbb1%3A0x4aa67ba370e4667b!2sNarkins%20Boutique%20Residency!5e0!3m2!1sen!2s!4v1714296380913!5m2!1sen!2s'}/>
+            <Footer map={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.564164811388!2d67.31885989999999!3d25.0149214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34bad638fbbb1%3A0x4aa67ba370e4667b!2sNarkins%20Boutique%20Residency!5e0!3m2!1sen!2s!4v1714296380913!5m2!1sen!2s'} />
         </main>
     )
 }

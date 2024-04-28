@@ -100,6 +100,7 @@ export default function Home() {
           <video autoplay src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm" style={{
              minHeight: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
           }} />
+          <Navigation/>
           <div className="container mx-auto px-4">
             <div className="row">
               <div className="col-md-12 text-white">
@@ -426,7 +427,7 @@ export default function Home() {
                   '\n                    .scroll-container {\n                    position: relative;\n                    overflow-x: scroll;\n                    width: 100%; background:black;\n                    }\n                    .scroll-containe-r::before,\n                    .scroll-containe-r::after {\n                    content: "";\n                    position: absolute;\n                    top: 0;\n                    width: 20px; /* Adjust the width of the shadow as needed */\n                    height: 100%;\n                    pointer-events: none;\n                    }\n                    .scroll-containe-r::before {\n                    left: 0;\n                    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                    .scroll-containe-r::after {\n                    right: 0;\n                    background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                '
               }}
             />
-            <div className="mx-auto mt-5 py-4 flex overflow-x-auto snap-x gap-4">
+            <div className="mx-auto mt-5 py-4 flex overflow-x-auto snap-x gap-4 no-scrollbar">
               {[
                 "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png",
                 "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png",

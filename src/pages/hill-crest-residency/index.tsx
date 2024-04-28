@@ -7,6 +7,10 @@ import { useState, Fragment } from "react";
 import dynamic from "next/dynamic";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import Footer from "@/components/footer/footer";
+import { Lightbox } from "@/components/lightbox/lightbox";
+import Link from "next/link";
+import Head from "next/head";
+
 const people = [
     'Durward Reynolds',
     'Kenton Towne',
@@ -20,11 +24,11 @@ function classNames(...classes) {
 }
 
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
-const categories = ['2 bed', '3 bed', '4 bed'];
+const categories = ['2 Bed', '3 Bed', '4 Bed'];
 const cards = [[
-    { title: '2 Bed Diamond', size: '1276 Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Diamond-HCR-scaled.webp' },
-    { title: '2 Bed Gold', size: '1180 Feet', location: 'Gold Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Gold-HCR-scaled.webp' },
-    { title: '2 Bed Sapphire', size: '881 Feet', location: 'Sapphire Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
+    { title: '2 Bed Diamond', size: '1276 Square Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Diamond-HCR-scaled.webp' },
+    { title: '2 Bed Gold', size: '1180 Square Feet', location: 'Gold Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Gold-HCR-scaled.webp' },
+    { title: '2 Bed Sapphire', size: '881 Square Feet', location: 'Sapphire Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
 ], [
     { title: '3 Bed Platinum', size: '1884 Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
 ], [
@@ -32,19 +36,7 @@ const cards = [[
     { title: '4 Bed Rhodium', size: '2507 Feet', location: 'Jinnah View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
 ]];
 
-const Lightbox = ({ open, onClose, image }: { open: boolean, onClose: () => void, image: string }) => {
-    return (
-        <div onClick={onClose} className={`fixed top-0 left-0 z-[999] flex justify-center items-center transition duration-150 ease-in-out w-[100vw] h-[100vh] ${open ? 'visible' : 'hidden'}`} style={{ background: 'rgba(0, 0, 0, 0.8)', backdropFilter: 'blur(5px)' }}>
-            <div className={'fixed top-0 w-[100vw] h-[5rem] right-0'}>
-                <XCircleIcon width="2rem" height="2rem" className="ml-auto mt-5 mr-5 pointer-cursor" onClick={onClose} color="white" />
-            </div>
-            <img onClick={e => e.stopPropagation()} src={image} className={'w-full h-auto'} />
-        </div>
-    )
-}
 export default function NarkinsBoutiqueResidency() {
-
-    const [selectedPerson, setSelectedPerson] = useState(people[0])
     const [lightbox, setLightbox] = useState({
         open: false, image: ''
     });
@@ -63,11 +55,14 @@ export default function NarkinsBoutiqueResidency() {
 
     return (
         <main>
+            <Head>
+                <title>Narkin's Boutique Residency</title>
+            </Head>
             <Navigation />
             <Lightbox {...lightbox} onClose={() => setLightbox({ ...lightbox, open: false, image: '' })} />
             <div className="bg-white pt-[6rem]">
                 <div className="px-4 bg-neutral-50 relative md:xl:px-0 w-full h-auto max-w-7xl z-index-0 bg-transparent mx-auto my-8 rounded-xl overflow-hidden -md:lg:rounded-none">
-                    <VideoPlayer src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Hill-Crest-03-07-2023.webm" />
+                    <VideoPlayer src="https://narkinsbuilders.com/wp-content/uploads/2024/04/256c9140-de7c-4a53-8c00-45793f46131b.mp4" poster={'https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h25m05s134-1.jpg'} />
                 </div>
                 <div className="relative isolate overflow-hidden py-20 pt-5 sm:py-[28px]">
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -82,9 +77,9 @@ export default function NarkinsBoutiqueResidency() {
                         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
                                 {[{ name: 'Project Info', href: "#our-offerings" }].map((link) => (
-                                    <a key={link.name} className="text-black" href={link.href}>
+                                    <Link key={link.name} className="text-black" href={link.href}>
                                         {link.name} <span aria-hidden="true">&rarr;</span>
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                             <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
@@ -173,7 +168,7 @@ export default function NarkinsBoutiqueResidency() {
                                 "https://narkinsbuilders.com/wp-content/uploads/2024/04/pray-area.webp",
                                 "https://narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp",
                                 "https://narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp",
-                            ].map(i => ({ image: i }))}
+                            ].map((i, _) => ({ image: i, /*label: ['Gym', 'Prayer Area', 'Steam Bath', 'Grand Lobby'][_]*/ }))}
                         />
                     </div>
                 </section>
@@ -204,8 +199,8 @@ export default function NarkinsBoutiqueResidency() {
                             />
                         </div>
                     </div>
-                    <div className="max-w-7xl mx-auto">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+                    <div className="max-w-7xl mx-auto hidden">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                             {[
                                 [
                                     "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-30-23h21m35s735.jpg",
@@ -229,7 +224,7 @@ export default function NarkinsBoutiqueResidency() {
                                 ]
                             ].map((images, index) => (
                                 <div className="grid gap-4" key={images.join()}>
-                                    {images.slice(0, 2).map((src) => <div key={src}>
+                                    {images.slice(0, 2).map((src) => <div key={src} className="px-4" onClick={() => openLightbox({ image: src })}>
                                         <img className={`h-auto max-w-full rounded-lg`} src={src} alt="" />
                                     </div>)}
                                 </div>
@@ -308,7 +303,7 @@ export default function NarkinsBoutiqueResidency() {
                     </div>
                 </section>
             </div>
-            <Footer map={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.871134778674!2d67.3134228!3d25.0044944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34b0d0e2f0313%3A0x82f9da3499b223b1!2sHill%20Crest%20Residency!5e0!3m2!1sen!2s!4v1714296481726!5m2!1sen!2s'}/>
+            <Footer map={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.871134778674!2d67.3134228!3d25.0044944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34b0d0e2f0313%3A0x82f9da3499b223b1!2sHill%20Crest%20Residency!5e0!3m2!1sen!2s!4v1714296481726!5m2!1sen!2s'} />
         </main>
     )
 }
