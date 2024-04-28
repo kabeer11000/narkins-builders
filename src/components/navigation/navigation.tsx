@@ -278,7 +278,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
         </Dialog>
       </Transition.Root>
 
-      <header className={`relative ${transparent ? "bg-transparent" : "bg-white"} ${transparent ? 'text-white' : 'text-gray-800'}`}>
+      <header className={`fixed w-[100vw] z-[999] ${transparent ? "bg-transparent" : "bg-white"} ${transparent ? 'text-white' : 'text-gray-800'}`}>
         <p className="flex h-10 items-center justify-center bg-black px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, Fragment } from 'react'
+import { useEffect, useRef, useState, Fragment } from 'react';
 import 'smart-webcomponents-react/source/styles/smart.default.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
@@ -40,13 +40,7 @@ export default function Home() {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
-          rel="stylesheet"
-        />
-        <title>Narkin's Builders - Home Page</title>
+        <title>{`Narkin's Builders - Home Page`}</title>
       </Head>
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -89,7 +83,6 @@ export default function Home() {
                 border: 1px solid #bebebe;
       }`}} type="text/css" />
       {/* Modal */}
-      <meta data-rh="true" name="theme-color" content="#000000" />
       <div className="parallax">
         {/* <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -576,162 +569,6 @@ export default function Home() {
         }}
       />
       <Footer />
-      {/* <footer className="py-5 mt-5 bg-black text-white">
-        <div className="container">
-          <div className="row">
-            <ul className="nav col-md-3 justify-content-start list-unstyled d-flex">
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://www.instagram.com/narkinsbuilders/&ved=2ahUKEwjm_dfDzNOFAxWcVfEDHVtLDiEQjjh6BAgREAE&usg=AOvVaw2nXeQp104b03-X7rNMqVEb"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#instagram" />
-                  </svg>
-                </a>
-              </li>
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://www.facebook.com/narkinsbuilders/&ved=2ahUKEwjH-bT2zNOFAxUzVvEDHZBSDdsQFnoECBQQAQ&usg=AOvVaw33Otucjv2l2nO_9kuG_Gvc"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#facebook" />
-                  </svg>
-                </a>
-              </li>
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://www.linkedin.com/company/narkins-builders-and-developers?originalSubdomain=pk"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#linkedin" />
-                  </svg>
-                </a>
-              </li>
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://youtu.be/tT7kkMM0pz0?si=YNTU-xPd-Dy7NoZn"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#youtube" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-            <div className="col-9 col-md-4 mb-3">
-              <h5>Links</h5>
-              <ul className="nav flex-column">
-                <li className="nav-item mb-2">
-                  <a href="#" className="nav-link p-0 -text-body-secondary">
-                    Contact Us
-                  </a>
-                </li>
-                <li className="nav-item mb-2">
-                  <a href="#" className="nav-link p-0 -text-body-secondary">
-                    About Us
-                  </a>
-                </li>
-                <li className="nav-item mb-2">
-                  <a href="#" className="nav-link p-0 -text-body-secondary">
-                    Hill Crest Residency
-                  </a>
-                </li>
-                <li className="nav-item mb-2">
-                  <a href="#" className="nav-link p-0 -text-body-secondary">
-                    Narkin's Boutique Residency
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-md-5 offset-md-1 hidden mb-3">
-              <form>
-                <h5>Subscribe to our newsletter</h5>
-                <p>Monthly digest of what's new and exciting from us.</p>
-                <div className="d-flex flex-column flex-sm-row w-100 gap-2">
-                  <label htmlFor="newsletter1" className="visually-hidden">
-                    Email address
-                  </label>
-                  <input
-                    id="newsletter1"
-                    type="text"
-                    className="form-control"
-                    placeholder="Email address"
-                  />
-                  <button className="btn btn-warning" type="button">
-                    Subscribe
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div className="col-md-5">
-              <div className="col-md-6" />
-              <div className="col-md-6- rounded-1">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7231.128353179299!2d67.31886!3d25.014921!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34bad638fbbb1%3A0x4aa67ba370e4667b!2sNarkins%20Boutique%20Residency!5e0!3m2!1sen!2s!4v1713640558555!5m2!1sen!2s"
-                  style={{ border: 0, height: "20rem", width: "100%" }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-            <p>
-              © Narkins,{" "}
-              <a href="https://www.linkedin.com/in/imossaidqadri/">
-                Developed by Ossaid Qadri
-              </a>
-              . All rights reserved.
-            </p>
-            <ul className="list-unstyled hidden">
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://www.instagram.com/narkinsbuilders/&ved=2ahUKEwjm_dfDzNOFAxWcVfEDHVtLDiEQjjh6BAgREAE&usg=AOvVaw2nXeQp104b03-X7rNMqVEb"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#instagram" />
-                  </svg>
-                </a>
-              </li>
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://www.facebook.com/narkinsbuilders/&ved=2ahUKEwjH-bT2zNOFAxUzVvEDHZBSDdsQFnoECBQQAQ&usg=AOvVaw33Otucjv2l2nO_9kuG_Gvc"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#facebook" />
-                  </svg>
-                </a>
-              </li>
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://www.linkedin.com/company/narkins-builders-and-developers?originalSubdomain=pk"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#linkedin" />
-                  </svg>
-                </a>
-              </li>
-              <li className="ms-3">
-                <a
-                  className="link-body-emphasis"
-                  href="https://youtu.be/tT7kkMM0pz0?si=YNTU-xPd-Dy7NoZn"
-                >
-                  <svg className="bi" width={24} height={24}>
-                    <use xlinkHref="#youtube" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer> */}
       <script dangerouslySetInnerHTML={{
         __html: `window.onclick = function (e) {
                 e.preventDefault();
