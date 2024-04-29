@@ -34,7 +34,7 @@ function classNames(...classes) {
 }
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
 export default function Home() {
-  const dialogState = useDialogState();
+  // const dialogState = useDialogState();
   return (
     <>
       <Head>
@@ -97,10 +97,10 @@ export default function Home() {
             position: 'relative',
           }}
         >
-          <video autoplay src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm" style={{
-             height: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
+          <video autoPlay src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm" style={{
+            height: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
           }} />
-          <Navigation/>
+          {/* <Navigation /> */}
           <div className="container mx-auto px-4">
             <div className="row">
               <div
@@ -292,13 +292,13 @@ export default function Home() {
             <style
               dangerouslySetInnerHTML={{
                 __html:
-                  "\n                    .trusted-partners {\n                    -ms-overflow-style: none;  /* Internet Explorer 10+ */\n                    scrollbar-width: none;  /* Firefox */\n                    }\n                    .trusted-partners::-webkit-scrollbar { \n                    display: none;  /* Safari and Chrome */\n                    }\n                "
+                  ".trusted-partners { -ms-overflow-style: none;  /* Internet Explorer 10+ */ scrollbar-width: none;  /* Firefox */} .trusted-partners::-webkit-scrollbar { display: none;  /* Safari and Chrome */ }"
               }}
             />
             <style
               dangerouslySetInnerHTML={{
                 __html:
-                  '\n                    .scroll-container {\n                    position: relative;\n                    overflow-x: scroll;\n                    width: 100%; background:black;\n                    }\n                    .scroll-containe-r::before,\n                    .scroll-containe-r::after {\n                    content: "";\n                    position: absolute;\n                    top: 0;\n                    width: 20px; /* Adjust the width of the shadow as needed */\n                    height: 100%;\n                    pointer-events: none;\n                    }\n                    .scroll-containe-r::before {\n                    left: 0;\n                    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                    .scroll-containe-r::after {\n                    right: 0;\n                    background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%);\n                    }\n                '
+                  '.scroll-container { position: relative; overflow-x: scroll; width: 100%; background:black; }.scroll-containe-r::before, .scroll-containe-r::after { content: ""; position: absolute; top: 0; width: 20px; /* Adjust the width of the shadow as needed */ height: 100%; pointer-events: none; } .scroll-containe-r::before { left: 0; background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%); } .scroll-containe-r::after { right: 0; background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%); }'
               }}
             />
             <div className="mx-auto mt-5 py-4 flex overflow-x-auto snap-x gap-4 no-scrollbar">
