@@ -63,8 +63,8 @@ export default function NarkinsBoutiqueResidency() {
     const openLightbox = ({ image }: { image: string }) => {
         setLightbox({ ...lightbox, open: true, image });
     }
-    const [query, setQuery] = useState('')
-    const matches = useMediaQuery('(min-width: 768px)');
+    // const [query, setQuery] = useState('')
+    // const matches = useMediaQuery('(min-width: 768px)');
     return (
         <main>
             <Head>
@@ -76,9 +76,9 @@ export default function NarkinsBoutiqueResidency() {
                 <div className="relative isolate h-[40vh] overflow-hidden py-20 pt-10 sm:py-[28px]">
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
                         <div className="mx-auto lg:mx-0">
-                            <h2 className="text-4xl font-bold tracking-tight text-black sm:text-7xl">{`Completed Projects`}</h2>
+                            <h2 className="text-4xl font-bold tracking-tight text-black sm:text-4xl">{`Completed Projects`}</h2>
                             <p className="mt-6 text-lg leading-8 text-gray-800">
-                                Welcome to Narkin's Boutique Residency, where luxury meets bespoke design in the heart of Bahria Town Karachi's Heritage Commercial area. Crafted by "Talent & Taste," our premium high-rise apartments redefine upscale living with their exquisite attention to detail.
+                                Our journey began three decades ago, and since then, we have embarked on numerous remarkable ventures that stand as a testament to our dedication and expertise. Our recent projects have left an indelible mark on Karachi’s skyline.
                             </p>
                         </div>
                         <div className="mx-auto mt-10 max-w-2xl hidden lg:mx-0 lg:max-w-none">

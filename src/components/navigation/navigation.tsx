@@ -27,8 +27,8 @@ const navigation = {
           id: 'curent',
           name: 'Current Projects',
           items: [
-            { name: 'Hill Crest Residency', href: '#' },
-            { name: 'Narkin\'s Boutique Residency', href: '#' },
+            { name: 'Hill Crest Residency', href: '/hill-crest-residency' },
+            { name: 'Narkin\'s Boutique Residency', href: '/narkins-boutique-residency' },
           ],
         },
       ],
@@ -80,7 +80,8 @@ const navigation = {
     },
   ],
   pages: [
-    { name: 'About Us', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: 'https://gromotions.com/narkin/about/' },
     { name: 'Contact Us', href: 'https://api.whatsapp.com/send?phone=923152386393' },
   ],
 }

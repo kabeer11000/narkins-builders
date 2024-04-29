@@ -10,6 +10,7 @@ import Dialog, { useDialogState } from '@/components/dialog/dialog';
 import { ArrowPathIcon, Bars3Icon, BellIcon, ChartPieIcon, ChevronDownIcon, CursorArrowRaysIcon, FingerPrintIcon, PhoneIcon, PlayCircleIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link';
 import Testimonials from '@/components/testimonials/testimonials';
+import BlogsSection from '@/components/blogs-section/blogs-section';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -34,9 +35,10 @@ const callsToAction = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
+
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
 export default function Home() {
-  // const dialogState = useDialogState();
+  const dialogState = useDialogState();
   return (
     <>
       <Head>
@@ -89,7 +91,7 @@ export default function Home() {
         /> */}
         <header className="relative flex items-center justify-center h-[70vh] overflow-hidden">
           <div
-            className="relative z-30 text-white"
+            className="relative z-10 text-white"
           >
             <div className="mx-auto px-4">
               <div className="row">
@@ -110,6 +112,7 @@ export default function Home() {
                   >
                     <button
                       type="button"
+                      onClick={() => dialogState.open()}
                       className="bg-white hover:bg-gray-100- text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                       data-bs-toggle="modal"
                       data-bs-target="#get-more-information"
@@ -128,19 +131,17 @@ export default function Home() {
             autoPlay
             loop
             muted
-            className="absolute z-10 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
+            className="absolute z-1 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
           >
             <source
-              src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm"
-              type="video/webm"
+              src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.mp4"
+              type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
         </header>
       </div>
-      <Dialog title={`Get More Information — Narkin's Builders`} open={false} onClose={function (): void {
-        throw new Error('Function not implemented.');
-      }} body={
+      <Dialog title={`Get More Information — Narkin's Builders`} {...dialogState.props} body={
         <iframe
           src="https://narkinsbuilders.com/embedded-contact-form/"
           loading="lazy"
@@ -201,7 +202,7 @@ export default function Home() {
               <p className="caption hidden -lg:block">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-7xl">{`Narkin's Boutique Residency`}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{`Narkin's Boutique Residency`}</h2>
               <div className="mt-6 text-lg leading-8 text-gray-100">
                 {`Narkin’s`} Boutique Residency in Bahria Town Karachi offers luxury and bespoke design in a Heritage Commercial area. With 29 floors, it features 2, 3, and 4-bedroom luxury apartments with panoramic views. Residents enjoy access to over 10 premium amenities, including fitness facilities, indoor swimming pools, and recreational areas. Experience the epitome of sophistication at Narkin’s Boutique Residency.                <br />
                 <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -226,7 +227,7 @@ export default function Home() {
               <p className="caption hidden -lg:block">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-7xl">{`Hill Crest Residency`}</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{`Hill Crest Residency`}</h2>
               <div className="mt-6 text-lg leading-8 text-gray-100">
                 Conveniently situated just two minutes from the main gate of Bahria Town Karachi, Hill Crest Residency presents a selection of luxurious 2, 3, and 4-bedroom apartments. Schedule your free tour today and experience refined living at its finest!
                 <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -261,7 +262,7 @@ export default function Home() {
               <p className="caption hidden">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-black sm:text-7xl">Completed Projects</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">Completed Projects</h2>
               <div className="text-lg mt-4 leading-8 text-neutral-900">
                 We always deliver what we promise.
               </div>
@@ -301,7 +302,7 @@ export default function Home() {
               <p className="caption hidden">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-7xl">Trusted Partners</h2>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Trusted Partners</h2>
               <div className="mt-4 text-lg leading-8 text-gray-100">
                 Partners that chose to work with us
               </div>
@@ -393,6 +394,7 @@ export default function Home() {
             "\n            .bd-placeholder-img {\n            font-size: 1.125rem;\n            text-anchor: middle;\n            -webkit-user-select: none;\n            -moz-user-select: none;\n            user-select: none;\n            }\n            @media (min-width: 768px) {\n            .bd-placeholder-img-lg {\n            font-size: 3.5rem;\n            }\n            }\n            .b-example-divider {\n            width: 100%;\n            height: 3rem;\n            background-color: rgba(0, 0, 0, .1);\n            border: solid rgba(0, 0, 0, .15);\n            border-width: 1px 0;\n            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);\n            }\n            .b-example-vr {\n            flex-shrink: 0;\n            width: 1.5rem;\n            height: 100vh;\n            }\n            .bi {\n            vertical-align: -.125em;\n            fill: currentColor;\n            }\n            .nav-scroller {\n            position: relative;\n            z-index: 2;\n            height: 2.75rem;\n            overflow-y: hidden;\n            }\n            .nav-scroller .nav {\n            display: flex;\n            flex-wrap: nowrap;\n            padding-bottom: 1rem;\n            margin-top: -1px;\n            overflow-x: auto;\n            text-align: center;\n            white-space: nowrap;\n            -webkit-overflow-scrolling: touch;\n            }\n            .btn-bd-primary {\n            --bd-violet-bg: #712cf9;\n            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;\n            --bs-btn-font-weight: 600;\n            --bs-btn-color: var(--bs-white);\n            --bs-btn-bg: var(--bd-violet-bg);\n            --bs-btn-border-color: var(--bd-violet-bg);\n            --bs-btn-hover-color: var(--bs-white);\n            --bs-btn-hover-bg: #6528e0;\n            --bs-btn-hover-border-color: #6528e0;\n            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);\n            --bs-btn-active-color: var(--bs-btn-hover-color);\n            --bs-btn-active-bg: #5a23c8;\n            --bs-btn-active-border-color: #5a23c8;\n            }\n            .bd-mode-toggle {\n            z-index: 1500;\n            }\n            .bd-mode-toggle .dropdown-menu .active .bi {\n            display: block !important;\n            }\n        "
         }}
       />
+      <BlogsSection/>
       <Footer />
       <script dangerouslySetInnerHTML={{
         __html: `window.onclick = function (e) {

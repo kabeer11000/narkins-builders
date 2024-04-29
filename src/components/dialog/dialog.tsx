@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Fragment, useRef, useState } from 'react'
 import { Dialog as BaseDialog, Transition } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+// import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 
 interface DialogProps {
@@ -16,7 +16,7 @@ const Dialog: FC<DialogProps> = ({ open, onClose, title, body, showButtons, canc
   const cancelButtonRef = useRef(null);
   return (
     <Transition.Root show={open} as={Fragment}>
-      <BaseDialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={onClose}>
+      <BaseDialog as="div" className="relative z-[9999999]" initialFocus={cancelButtonRef} onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -43,9 +43,9 @@ const Dialog: FC<DialogProps> = ({ open, onClose, title, body, showButtons, canc
               <BaseDialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                 <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
-                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                    {/* <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                       <ExclamationTriangleIcon className="h-6 w-6 text-red-600" aria-hidden="true" />
-                    </div>
+                    </div> */}
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <BaseDialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
                         {title}

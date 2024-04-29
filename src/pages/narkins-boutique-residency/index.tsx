@@ -81,7 +81,7 @@ export default function NarkinsBoutiqueResidency() {
                             </p>
                         </div>
                         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-                            <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                            <div className="grid hidden grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
                                 {[{ name: 'Project Info', href: "#our-offerings" }].map((link) => (
                                     <Link key={link.name} className="text-black" href={link.href}>
                                         {link.name} <span aria-hidden="true">&rarr;</span>
@@ -103,7 +103,7 @@ export default function NarkinsBoutiqueResidency() {
                 <section className=" bg-black">
                     <div className="mx-auto max-w-7xl py-[5rem] lg:px-8">
                         <div className="mx-auto px-6 max-w-2xl lg:mx-0">
-                            <h3 className="text-3xl font-bold tracking-tight text-white sm:text-7xl capitalize">Our offerings</h3>
+                            <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl capitalize">Our offerings</h3>
                         </div>
                         <Tab.Group>
                             <Tab.List className="flex space-x-1 gap-2 px-6 my-5 mb-5 border-b-neutral-900 rounded-xl bg-neutral-900/20 p-1">
@@ -159,7 +159,7 @@ export default function NarkinsBoutiqueResidency() {
                 </section>
                 <section className="bg-white py-5 mx-auto max-w-7xl py-[5rem] lg:px-8">
                     <div className="mx-auto px-6 my-5 max-w-2xl lg:mx-0">
-                        <h3 className="text-3xl font-bold tracking-tight text-black sm:text-7xl capitalize">Our Amenities</h3>
+                        <h3 className="text-3xl font-bold tracking-tight text-black sm:text-4xl capitalize">Our Amenities</h3>
                         <p className="mt-6 text-lg leading-8 text-gray-800">
                             Top-notch Amenities at Your Doorstep
                         </p>
@@ -184,7 +184,7 @@ export default function NarkinsBoutiqueResidency() {
                 <section className="bg-neutral-100 px-5 py-[4rem] lg:px-8">
                     <div className="py-5 mx-auto max-w-7xl">
                         <div className="mx-auto -px-6 my-5 max-w-2xl lg:mx-auto">
-                            {/* <h3 className="text-3xl font-bold tracking-tight text-black sm:text-7xl capitalize">Gallery</h3> */}
+                            {/* <h3 className="text-3xl font-bold tracking-tight text-black sm:text-4xl capitalize">Gallery</h3> */}
                         </div>
                         <div className="max-w-7xl mt-5 mx-auto w-full overflow-hidden">
                             <Carousel
@@ -231,7 +231,7 @@ export default function NarkinsBoutiqueResidency() {
                 <section className="bg-neutral-100 border-t -px-5 lg:px-8 py-[4rem]">
                     <div className="py-5 -px-5 mx-auto max-w-7xl">
                         <div className="mx-auto px-5 my-5 max-w-2xl lg:mx-0">
-                            <h3 className="text-3xl font-bold tracking-tight text-black sm:text-7xl capitalize">Testimonials</h3>
+                            <h3 className="text-3xl font-bold tracking-tight text-black sm:text-4xl capitalize">Testimonials</h3>
                         </div>
                         <div className="grid mb-8 px-5 max-w-7xl mt-5 lg:mb-12 gap-2 gap-y-2 lg:grid-cols-2">
                             {[
