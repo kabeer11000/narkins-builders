@@ -128,9 +128,7 @@ export default function Home() {
             </div>
           </div>
           <video
-            autoPlay
-            loop
-            muted
+            preload="yes" playsInline loop muted autoPlay
             className="absolute z-1 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
           >
             <source

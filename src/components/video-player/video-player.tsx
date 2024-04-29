@@ -49,7 +49,7 @@ export default function VideoPlayer({ src, poster }: { src: string, poster?: str
                     onPlayPause={togglePlayPause}
                 />
             </div>
-            <video className="w-full" poster={poster} ref={videoRef} loop muted autoPlay>
+            <video className="w-full" poster={poster} ref={videoRef} preload="yes" playsInline loop muted autoPlay>
                 <source src={src} />
             </video>
         </div>
