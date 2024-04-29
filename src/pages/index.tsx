@@ -2,12 +2,14 @@ import { useEffect, useRef, useState, Fragment } from 'react';
 import 'smart-webcomponents-react/source/styles/smart.default.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import Script from 'next/script';
+// import Script from 'next/script';
 import Navigation from '@/components/navigation/navigation';
 import Footer from '@/components/footer/footer';
 import Dialog, { useDialogState } from '@/components/dialog/dialog';
-import { Disclosure, Menu, Popover, Transition } from '@headlessui/react'
+// import { Disclosure, Menu, Popover, Transition } from '@headlessui/react'
 import { ArrowPathIcon, Bars3Icon, BellIcon, ChartPieIcon, ChevronDownIcon, CursorArrowRaysIcon, FingerPrintIcon, PhoneIcon, PlayCircleIcon, SquaresPlusIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link';
+import Testimonials from '@/components/testimonials/testimonials';
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -42,6 +44,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{`Narkin's Builders - Home Page`}</title>
       </Head>
+      <Navigation />
       <style dangerouslySetInnerHTML={{
         __html: `
             .parallax {
@@ -56,12 +59,6 @@ export default function Home() {
                 left: 0;
           }
             body {
-                background: white;
-                -background-image: radial-gradient(black 1px, transparent 0);
-                background-size: 40px 40px;
-                background-position: -19px -19px;
-                font-family: "Jost", Sans-serif !important;
-                font-weight: 600;
           }
             .scrollbox {
                 overflow: auto;
@@ -83,57 +80,63 @@ export default function Home() {
                 border: 1px solid #bebebe;
       }`}} type="text/css" />
       {/* Modal */}
-      <div className="parallax">
+
+      <div>
         {/* <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet"
           crossOrigin="anonymous"
         /> */}
-        <div
-          style={{
-            height: "80%",
-            paddingBottom: "15rem",
-            width: "100vw",
-            position: 'relative',
-          }}
-        >
-          <video autoPlay src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm" style={{
-            height: '100%', position: 'absolute', top: 0, filter: 'brightness(50%)', zIndex: -1,
-          }} />
-          {/* <Navigation /> */}
-          <div className="container mx-auto px-4">
-            <div className="row">
-              <div
-                className="col-md-12 text-center text-white"
-                style={{ marginTop: "10rem" }}
-              >
-                <p className="caption hidden -lg:block">
-                  <strong>Welcome to</strong>
-                </p>
-                <h2 className="text-4xl lg:text-6xl font-bold">{`Narkin's Builders`}</h2>
-                <div className="text-gray leading-relaxed">
-                  Creating Iconic Living Experiences.
-                </div>
+        <header className="relative flex items-center justify-center h-[70vh] overflow-hidden">
+          <div
+            className="relative z-30 text-white"
+          >
+            <div className="mx-auto px-4">
+              <div className="row">
                 <div
-                  className="d-flex mt-[4rem]"
-                  style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
+                  className="text-center text-white"
+                  style={{ marginTop: "7rem" }}
                 >
-                  <button
-                    type="button"
-                    className="bg-white hover:bg-gray-100- text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-                    data-bs-toggle="modal"
-                    data-bs-target="#get-more-information"
+                  <p className="caption hidden -lg:block">
+                    <strong>Welcome to</strong>
+                  </p>
+                  <h2 className="text-3xl lg:text-6xl sm:text-6xl font-bold">{`Narkin's Builders`}</h2>
+                  <div className="text-lg leading-8 text-gray-100">
+                    Creating Iconic Living Experiences.
+                  </div>
+                  <div
+                    className="d-flex mt-[4rem]"
+                    style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
                   >
-                    Get more information
-                  </button>
-                  <button type="button" className="btn btn-outline-light hidden">
-                    Light
-                  </button>
+                    <button
+                      type="button"
+                      className="bg-white hover:bg-gray-100- text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                      data-bs-toggle="modal"
+                      data-bs-target="#get-more-information"
+                    >
+                      Get more information
+                    </button>
+                    <button type="button" className="btn btn-outline-light hidden">
+                      Light
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+          <video
+            autoPlay
+            loop
+            muted
+            className="absolute z-10 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
+          >
+            <source
+              src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.webm"
+              type="video/webm"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </header>
       </div>
       <Dialog title={`Get More Information — Narkin's Builders`} open={false} onClose={function (): void {
         throw new Error('Function not implemented.');
@@ -161,7 +164,7 @@ export default function Home() {
             id='carousel'
             swipe hideArrows={false} autoPlay slideShow loop
             hideIndicators={false} keyboard displayMode="default" interval={10000}
-            className="flex-1 h-full min-w-[50vw]" style={{ background: 'black' }}
+            className="flex-1 h-full max-w-[50vw]" style={{ background: 'black' }}
             dataSource={[
               "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
               "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
@@ -174,7 +177,7 @@ export default function Home() {
             ].map(i => ({ image: i }))}
           />
         </div>
-        <div className="container h-full py-[2.5rem] mx-auto px-4">
+        <div className="max-w-7xl h-full py-[2.5rem] mx-auto px-4">
           <div className="flex flex-col pt-10 justify-center h-full md:flex-row">
             <div className="lg:hidden xl:hidden md:hidden w-full">
               <Carousel
@@ -194,62 +197,77 @@ export default function Home() {
                 ].map(i => ({ image: i }))}
               />
             </div>
-            <div className="md:w-1/2 py-10 mt-[5%]">
+            <div className="max-w-3xl text-left- md:lg:pr-[10rem] mx-auto pb-[5rem] gap-y-2 py-10 mt-[5%]">
               <p className="caption hidden -lg:block">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-4xl lg:text-6xl font-bold mb-4">{`Narkin's Boutique Residency`}</h2>
-              <div className="text-gray leading-relaxed">
-                Narkin’s Boutique Residency in Bahria Town Karachi offers luxury and bespoke design in a Heritage Commercial area. With 29 floors, it features 2, 3, and 4-bedroom luxury apartments with panoramic views. Residents enjoy access to over 10 premium amenities, including fitness facilities, indoor swimming pools, and recreational areas. Experience the epitome of sophistication at Narkin’s Boutique Residency.                <br />
-                <a href="https://narkinsbuilders.com/narkins-boutique-residency/" className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-4">Project Details</a>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-7xl">{`Narkin's Boutique Residency`}</h2>
+              <div className="mt-6 text-lg leading-8 text-gray-100">
+                {`Narkin’s`} Boutique Residency in Bahria Town Karachi offers luxury and bespoke design in a Heritage Commercial area. With 29 floors, it features 2, 3, and 4-bedroom luxury apartments with panoramic views. Residents enjoy access to over 10 premium amenities, including fitness facilities, indoor swimming pools, and recreational areas. Experience the epitome of sophistication at Narkin’s Boutique Residency.                <br />
+                <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+                  <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                    {[{ name: 'Project Info', href: "/narkins-boutique-residency" }].map((link) => (
+                      <Link key={link.name} className="text-white" href={link.href}>
+                        {link.name} <span aria-hidden="true">&rarr;</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
       {/* Page section example for content below the video header */}
-      <section className="text-white h-[70vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp)" }}>
-        <div className="container mx-auto px-4">
+      <section className="text-white h-[70vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
+        <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col justify-center h-full md:flex-row">
-            <div className="md:w-1/2 py-10">
+            <div className="max-w-3xl px-0 md:lg:px-[15px] gap-y-2 py-10 mt-[5%]">
               <p className="caption hidden -lg:block">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-4xl lg:text-6xl font-bold mb-4">Hill Crest Residency</h2>
-              <div className="text-gray leading-relaxed">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-7xl">{`Hill Crest Residency`}</h2>
+              <div className="mt-6 text-lg leading-8 text-gray-100">
                 Conveniently situated just two minutes from the main gate of Bahria Town Karachi, Hill Crest Residency presents a selection of luxurious 2, 3, and 4-bedroom apartments. Schedule your free tour today and experience refined living at its finest!
-                <br />
-                <a href="https://narkinsbuilders.com/hill-crest-residency/" className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-4">Project Details</a>
+                <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+                  <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                    {[{ name: 'Project Info', href: "/hill-crest-residency" }].map((link) => (
+                      <Link key={link.name} className="text-white" href={link.href}>
+                        {link.name} <span aria-hidden="true">&rarr;</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
             <div className="hidden md:block md:w-1/2 ml-[5rem]">
-              <img src="https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full" />
+              <img src="https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full min-w-[40vw]" />
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-gray-100">
-        <div className="py-5 container mx-auto px-4">
+      <section className="bg-gray-100 py-[10vh]">
+        <div className="py-5 max-w-7xl px-4 mx-auto">
           <div className="row">
             <div
-              className="col-md-12 mx-auto py-4 text-center"
+              className="mx-auto py-4 text-left"
               style={{
                 display: "flex",
                 height: "100%",
                 flexDirection: "column"
               }}
             >
-              <div style={{ flexGrow: "1 1 auto" }} />
+              {/* <div style={{ flexGrow: "1 1 auto" }} /> */}
               <p className="caption hidden">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-4xl lg:text-6xl font-bold mb-4">Completed Projects</h2>
-              <div className="text-gray leading-relaxed">
+              <h2 className="text-3xl font-bold tracking-tight text-black sm:text-7xl">Completed Projects</h2>
+              <div className="text-lg mt-4 leading-8 text-neutral-900">
                 We always deliver what we promise.
               </div>
             </div>
             <div
-              className="col-md-8 mx-auto py-4"
+              className="mx-auto py-4"
               style={{
                 display: "flex",
                 height: "100%",
@@ -268,11 +286,11 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='bg-black'>
-        <div className="py-5 container mx-auto px-4">
+      <section className='bg-black h-[60vh] pt-[10vh]'>
+        <div className="py-5 max-w-7xl mx-auto px-4">
           <div className="row">
             <div
-              className="col-md-12 mx-auto py-4 text-center"
+              className="col-md-12 mx-auto py-4 text-left"
               style={{
                 display: "flex",
                 height: "100%",
@@ -283,8 +301,8 @@ export default function Home() {
               <p className="caption hidden">
                 <strong>Welcome to</strong>
               </p>
-              <h2 className="text-4xl lg:text-6xl text-white font-bold mb-4">Trusted Partners</h2>
-              <div className="text-gray-100 leading-relaxed">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-7xl">Trusted Partners</h2>
+              <div className="mt-4 text-lg leading-8 text-gray-100">
                 Partners that chose to work with us
               </div>
               <div className="text-gray"></div>
@@ -298,10 +316,10 @@ export default function Home() {
             <style
               dangerouslySetInnerHTML={{
                 __html:
-                  '.scroll-container { position: relative; overflow-x: scroll; width: 100%; background:black; }.scroll-containe-r::before, .scroll-containe-r::after { content: ""; position: absolute; top: 0; width: 20px; /* Adjust the width of the shadow as needed */ height: 100%; pointer-events: none; } .scroll-containe-r::before { left: 0; background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%); } .scroll-containe-r::after { right: 0; background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%); }'
+                  '.scroll-max-w-7xl { position: relative; overflow-x: scroll; width: 100%; background:black; }.scroll-containe-r::before, .scroll-containe-r::after { content: ""; position: absolute; top: 0; width: 20px; /* Adjust the width of the shadow as needed */ height: 100%; pointer-events: none; } .scroll-containe-r::before { left: 0; background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%); } .scroll-containe-r::after { right: 0; background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 1) 90%); }'
               }}
             />
-            <div className="mx-auto mt-5 py-4 flex overflow-x-auto snap-x gap-4 no-scrollbar">
+            <div className="mx-auto mt-5 py-4 no-scrollbar flex overflow-x-auto snap-x gap-4 no-scrollbar">
               {[
                 "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-02-320x202.png",
                 "https://gromotions.com/narkin/wp-content/uploads/2024/01/Trusted-Partners-03-320x202.png",
@@ -325,76 +343,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white dark:bg-gray-900">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-          <div className="mx-auto max-w-screen-sm">
-            <h2 className="text-4xl lg:text-6xl text-gray-900 font-bold mb-4">Testimonials</h2>
-            <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p>
-          </div>
-          <div className="grid mb-8 lg:mb-12 gap-2 gap-y-2 lg:grid-cols-2">
-            {[
-              {
-                name: "Saad Arshad",
-                stars: [true, true, true, true, "half"],
-                testimonial:
-                  "Highly committed to delivering in timelines, I wholeheartedly recommend considering investment in projects by Narkin’s Builders.",
-              },
-              {
-                name: "Arsalan",
-                stars: [true, true, true, true, true],
-                testimonial:
-                  "Smooth booking experience, very transparent throughout the process.",
-              },
-              {
-                name: "Umair Iqrar",
-                stars: [true, true, true, true, false],
-                testimonial:
-                  "I decided to invest during the initial launch phase, and after just two years, I’ve seen substantial returns. It’s been a fantastic investment opportunity!",
-              },
-            ].map((item, index) => (
-              <figure key={index} className="flex flex-col justify-center items-center p-8 text-center bg-white border-b border-gray-200 md:p-12 lg:border rounded">
-                <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-
-                  </h3>
-                  <ul className="flex justify-center my-4">
-                    {item.stars.map((star, starIndex) => (
-                      <li key={starIndex}>
-                        <i
-                          className={`fas ${star === true
-                            ? "fa-star text-yellow-400"
-                            : star === "half"
-                              ? "fa-star-half-alt text-yellow-400"
-                              : "far fa-star text-yellow-400"
-                            }`}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="my-4">
-                    {item.testimonial}
-                  </p>
-                </blockquote>
-                <figcaption className="flex justify-center items-center space-x-3">
-                  {/* <img
-                    className="w-9 h-9 rounded-full"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
-                    alt="profile picture"
-                  /> */}
-                  <div className="space-y-0.5 font-medium dark:text-white text-left">
-                    <div>{item.name}</div>
-                    <div className="text-sm font-light text-gray-500 dark:text-gray-400">
-                      Client
-                    </div>
-                  </div>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          {/* <div className="text-center">
-            <a href="#" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Show more...</a>
-          </div> */}
-        </div>
+      <section className="bg-white">
+        <Testimonials />
       </section>
       <svg xmlns="http://www.w3.org/2000/svg" className="hidden">
         <symbol id="bootstrap" viewBox="0 0 118 94">

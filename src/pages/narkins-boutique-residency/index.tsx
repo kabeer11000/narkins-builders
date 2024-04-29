@@ -256,7 +256,7 @@ export default function NarkinsBoutiqueResidency() {
                             ].map((item, index) => (
                                 <figure key={index} className="flex border hover:bg-[#FAFAFA] transition transition-duration-100 cursor-pointer flex-col justify-center items-center p-8 text-center bg-white border-b border-gray-200 md:p-12 lg:border rounded-xl">
                                     <blockquote className="mx-auto mb-8 max-w-2xl text-gray-500">
-                                        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                                        <h3 className="text-lg font-semibold text-gray-900 -dark:text-white">
 
                                         </h3>
                                         <ul className="flex justify-center my-4">
@@ -283,9 +283,9 @@ export default function NarkinsBoutiqueResidency() {
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/karen-nelson.png"
                     alt="profile picture"
                   /> */}
-                                        <div className="space-y-0.5 font-medium dark:text-white text-left">
+                                        <div className="space-y-0.5 font-medium -dark:text-white text-left">
                                             <div>{item.name}</div>
-                                            <div className="text-sm font-light text-gray-500 dark:text-gray-400">
+                                            <div className="text-sm font-light text-gray-500 -dark:text-gray-400">
                                                 Client
                                             </div>
                                         </div>
@@ -294,7 +294,7 @@ export default function NarkinsBoutiqueResidency() {
                             ))}
                         </div>
                         {/* <div className="text-center">
-            <a href="#" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Show more...</a>
+            <a href="#" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 -dark:focus:ring-gray-700 -dark:bg-gray-800 -dark:text-gray-400 -dark:border-gray-600 -dark:hover:text-white -dark:hover:bg-gray-700">Show more...</a>
           </div> */}
                     </div>
                 </section>

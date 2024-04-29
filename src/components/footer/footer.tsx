@@ -18,17 +18,17 @@ const Footer: FC<FooterProps> = ({ map }) => (
                 className="h-[5rem] me-3"
                 alt="FlowBite Logo"
               />
-              {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              {/* <span className="self-center text-2xl font-semibold whitespace-nowrap -dark:text-white">
                 {`Narkin's Builders`}
               </span> */}
             </a>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase -dark:text-white">
                 Pages
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500 -dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <a href="/narkins-boutique-residency" className="hover:underline">
                     {`Narkin's Boutique Residency`}
@@ -42,13 +42,13 @@ const Footer: FC<FooterProps> = ({ map }) => (
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase -dark:text-white">
                 Follow us
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500 -dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <a
-                    href="https://github.com/themesberg/flowbite"
+                    href="https://www.linkedin.com/company/narkins-builders-and-developers?originalSubdomain=pk"
                     className="hover:underline "
                   >
                     LinkedIn
@@ -56,27 +56,35 @@ const Footer: FC<FooterProps> = ({ map }) => (
                 </li>
                 <li className="mb-4">
                   <a
-                    href="https://discord.gg/4eeurUVvTy"
+                    href="https://www.instagram.com/narkinsbuilders/&ved=2ahUKEwjm_dfDzNOFAxWcVfEDHVtLDiEQjjh6BAgREAE&usg=AOvVaw2nXeQp104b03-X7rNMqVEb"
                     className="hover:underline"
                   >
                     Instagram
                   </a>
                 </li>
-                <li>
+                <li className="mb-4">
                   <a
-                    href="https://discord.gg/4eeurUVvTy"
+                    href="https://www.facebook.com/narkinsbuilders/&ved=2ahUKEwjH-bT2zNOFAxUzVvEDHZBSDdsQFnoECBQQAQ&usg=AOvVaw33Otucjv2l2nO_9kuG_Gvc"
                     className="hover:underline"
                   >
                     Facebook
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="https://youtu.be/tT7kkMM0pz0?si=YNTU-xPd-Dy7NoZn"
+                    className="hover:underline"
+                  >
+                    YouTube
+                  </a>
+                </li>
               </ul>
             </div>
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+            <div className="hidden">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase -dark:text-white">
                 Legal
               </h2>
-              <ul className="text-gray-500 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500 -dark:text-gray-400 font-medium">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
                     Privacy Policy
@@ -92,9 +100,9 @@ const Footer: FC<FooterProps> = ({ map }) => (
           </div>
         </div>
         {map && <iframe src={map} className="border rounded-xl my-5 mt-[5rem]" height="600" style={{ width: '100%' }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>}
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-gray-500 sm:text-center -dark:text-gray-400">
             © 2024{" "}
             <Link href="/" className="hover:underline">
               {`Narkin's Builders`}™
@@ -104,7 +112,7 @@ const Footer: FC<FooterProps> = ({ map }) => (
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a
               href="https://www.facebook.com/narkinsbuilders/&ved=2ahUKEwjH-bT2zNOFAxUzVvEDHZBSDdsQFnoECBQQAQ&usg=AOvVaw33Otucjv2l2nO_9kuG_Gvc"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+              className="text-gray-500 hover:text-gray-900 -dark:hover:text-white"
             >
               <svg
                 className="w-4 h-4"
@@ -123,7 +131,7 @@ const Footer: FC<FooterProps> = ({ map }) => (
             </a>
             {/* <a
               href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-500 hover:text-gray-900 -dark:hover:text-white ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -138,7 +146,7 @@ const Footer: FC<FooterProps> = ({ map }) => (
             </a>
             <a
               href="#"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-500 hover:text-gray-900 -dark:hover:text-white ms-5"
             >
               <svg
                 className="w-4 h-4"
@@ -157,7 +165,7 @@ const Footer: FC<FooterProps> = ({ map }) => (
             </a> */}
             <a
               href="https://www.linkedin.com/company/narkins-builders-and-developers?originalSubdomain=pk"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-500 hover:text-gray-900 -dark:hover:text-white ms-5"
             >
               <svg id="linkedin" viewBox="0 0 16 16"
                 className="w-4 h-4"
@@ -171,7 +179,7 @@ const Footer: FC<FooterProps> = ({ map }) => (
 
             <a
               href="https://www.instagram.com/narkinsbuilders/&ved=2ahUKEwjm_dfDzNOFAxWcVfEDHVtLDiEQjjh6BAgREAE&usg=AOvVaw2nXeQp104b03-X7rNMqVEb"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-500 hover:text-gray-900 -dark:hover:text-white ms-5"
             >
               <svg id="instagram" viewBox="0 0 16 16"
                 className="w-4 h-4"
@@ -184,7 +192,7 @@ const Footer: FC<FooterProps> = ({ map }) => (
             </a>
             <a
               href="https://youtu.be/tT7kkMM0pz0?si=YNTU-xPd-Dy7NoZn"
-              className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              className="text-gray-500 hover:text-gray-900 -dark:hover:text-white ms-5"
             >
               <svg id="youtube" viewBox="0 0 16 16" className="w-4 h-4"
                 aria-hidden="true"

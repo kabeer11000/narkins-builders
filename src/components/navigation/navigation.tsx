@@ -7,17 +7,17 @@ const navigation = {
   categories: [
     {
       id: 'curent-projects',
-      name: 'Current projects',
+      name: 'Ongoing projects',
       featured: [
         {
           name: 'Hill Crest',
-          href: '#',
+          href: '/hill-crest-residency',
           imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Boutique Residency',
-          href: '#',
+          href: '/narkins-boutique-residency',
           imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
@@ -38,20 +38,20 @@ const navigation = {
       name: 'Completed',
       featured: [
         {
-          name: 'Al Arz Home',
-          href: '#',
+          name: 'Al Arz Homes',
+          href: '/completed-projects?p=al-arz-homes',
           imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Palm Residency',
-          href: '#',
+          href: '/completed-projects?p=palm-residency',
           imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Al Arz Residency',
-          href: '#',
+          href: '/completed-projects?p=al-arz-residency',
           imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp',
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
@@ -59,7 +59,7 @@ const navigation = {
 
         {
           name: 'Classic Heights',
-          href: '#',
+          href: '/completed-projects?p=classic-heights',
           imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-28-at-12.49.08-AM.jpeg',
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
@@ -70,10 +70,10 @@ const navigation = {
           id: 'completed',
           name: 'Completed',
           items: [
-            { name: 'Al Arz Home', href: '#' },
-            { name: 'Al Arz Residency', href: '#' },
-            { name: 'Palm Residency', href: '#' },
-            { name: 'Classic Heights', href: '#' },
+            { name: 'Al Arz Homes', href: '/completed-projects?p=al-arz-homes' },
+            { name: 'Al Arz Residency', href: '/completed-projects?p=al-arz-residency' },
+            { name: 'Palm Residency', href: '/completed-projects?p=palm-heights' },
+            { name: 'Classic Heights', href: '/completed-projects?p=classic-heights' },
           ],
         },
       ],
@@ -81,7 +81,7 @@ const navigation = {
   ],
   pages: [
     { name: 'About Us', href: '#' },
-    { name: 'Contact Us', href: '#' },
+    { name: 'Contact Us', href: 'https://api.whatsapp.com/send?phone=923152386393' },
   ],
 }
 
@@ -164,7 +164,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
                               <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                                 <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
                               </div>
-                              <a href={item.href} className="mt-6 block font-medium ">
+                              <a href={item.href} className="mt-6 text-black block font-medium ">
                                 <span className="absolute inset-0 z-10" aria-hidden="true" />
                                 {item.name}
                               </a>
@@ -173,7 +173,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
                         </div>
                         {category.sections.map((section) => (
                           <div key={section.name}>
-                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium">
+                            <p id={`${category.id}-${section.id}-heading-mobile`} className="font-medium text-black">
                               {section.name}
                             </p>
                             <ul
@@ -183,7 +183,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a href={item.href} className="-m-2 block p-2">
+                                  <a href={item.href} className="-m-2 block p-2 text-black">
                                     {item.name}
                                   </a>
                                 </li>
@@ -210,7 +210,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
         </Dialog>
       </Transition.Root>
 
-      <header style={{ backdropFilter: 'blur(5px)', background: 'rgba(255, 255, 255, 0.925)' }} className={`fixed w-[100vw] z-[999] ${transparent ? "bg-transparent" : ""} ${transparent ? 'text-white' : 'text-gray-800'}`}>
+      <header style={{ backdropFilter: 'blur(5px)', background: 'rgba(255, 255, 255, 0.925)' }} className={`fixed top-0 w-[100vw] z-[999] ${transparent ? "bg-transparent" : ""} ${transparent ? 'text-white' : 'text-gray-800'}`}>
         {/* <p className="flex h-10 items-center justify-center bg-black px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p> */}
@@ -230,7 +230,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="#">
+                <a href="/">
                   <span className="sr-only">Narkins Builders</span>
                   <img
                     className="h-8 w-auto"
@@ -349,7 +349,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
                 {/* Cart */}
                 <div className="ml-4 flow-root lg:ml-6">
                   <button className="py-2 px-4 border no-underline rounded-full bg-black text-white font-sans font-semibold text-sm border-orange btn-primary hover:text-white hover:bg-orange-light focus:outline-none active:shadow-none mr-2">
-                    Sticky Button
+                    Get Quote
                   </button>
                 </div>
               </div>
