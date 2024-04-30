@@ -25,7 +25,7 @@ const navigation = {
       sections: [
         {
           id: 'curent',
-          name: 'Current Projects',
+          name: 'Ongoing Projects',
           items: [
             { name: 'Hill Crest Residency', href: '/hill-crest-residency' },
             { name: 'Narkin\'s Boutique Residency', href: '/narkins-boutique-residency' },
