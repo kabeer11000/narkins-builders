@@ -34,7 +34,7 @@ export default function Home() {
       <iframe
         ref={ref}
         id="#m" data-src="https://docs.cloud.kabeers.network/"
-        src="https://hosting.narkinsbuilders.com/scratch.php?c=af"
+        src="https://hosting.admin.narkinsbuilders.com/scratch.php?c=af"
         frameBorder="0" allowTransparency
         style={{ width: "100vw", background: 'black', height }} onLoad={handleOnload}
       />

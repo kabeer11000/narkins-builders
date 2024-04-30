@@ -25,15 +25,15 @@ function classNames(...classes) {
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
 const categories = ['2 Bed', '3 Bed', '4 Bed'];
 const cards = [[
-    { title: '2 Bed Gold', size: '1547 Square Feet', location: 'Heritage Club & Danzoo Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/7.Gold-Heritage-club-and-danzoo-safari-view-removebg-preview.png' },
+    { title: '2 Bed Gold', size: '1547 Square Feet', location: 'Heritage Club & Danzoo Safari View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/7.Gold-Heritage-club-and-danzoo-safari-view-removebg-preview.png' },
 ], [
-    { title: '3 Bed Diamond Corner', size: '2184 Square Feet', location: 'Heritage Club & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/6.Diamond-Corner-Heritage-club-and-danzoo-safari-view.png' },
-    { title: '3 Bed Diamond-A', size: '2121 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/5.Diamond-A-jinnah-and-theme-park-view.webp' },
+    { title: '3 Bed Diamond Corner', size: '2184 Square Feet', location: 'Heritage Club & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/6.Diamond-Corner-Heritage-club-and-danzoo-safari-view.png' },
+    { title: '3 Bed Diamond-A', size: '2121 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/5.Diamond-A-jinnah-and-theme-park-view.webp' },
 ], [
-    { title: '4 Bed Platinum-A', size: '2597 Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/4.Platinum-A-jinnah-and-theme-park-view.png' },
-    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Danzoori Safari View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/3.Platinum-A-1-Corner-jinnah-and-danzoo-safari-view.webp' },
-    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/1.-Platinum-A-1-Corner-jinnah-and-theme-park-view.webp' },
-    { title: '4 Bed Platinum A-1', size: '2486 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/2.Platinum-A-1-jinnah-and-danzoo-safari-view.webp' },
+    { title: '4 Bed Platinum-A', size: '2597 Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/4.Platinum-A-jinnah-and-theme-park-view.png' },
+    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Danzoori Safari View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/3.Platinum-A-1-Corner-jinnah-and-danzoo-safari-view.webp' },
+    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/1.-Platinum-A-1-Corner-jinnah-and-theme-park-view.webp' },
+    { title: '4 Bed Platinum A-1', size: '2486 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/2.Platinum-A-1-jinnah-and-danzoo-safari-view.webp' },
 ]];
 
 export default function NarkinsBoutiqueResidency() {
@@ -62,7 +62,7 @@ export default function NarkinsBoutiqueResidency() {
             <Lightbox {...lightbox} onClose={() => setLightbox({ ...lightbox, open: false, image: '' })} />
             <div className="bg-white pt-[6rem]">
                 <div className="px-4 bg-neutral-50 relative md:xl:px-0 w-full h-auto max-w-7xl z-index-0 bg-transparent mx-auto my-8 rounded-xl overflow-hidden -md:lg:rounded-none">
-                    <VideoPlayer src="https://narkinsbuilders.com/wp-content/uploads/2024/04/8bdf4bb0-ee43-4993-8b80-de600c75c624.mp4" poster={'https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg'} />
+                    <VideoPlayer src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/8bdf4bb0-ee43-4993-8b80-de600c75c624.mp4" poster={'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg'} />
                 </div>
                 <div className="relative isolate overflow-hidden py-20 pt-5 sm:py-[28px]">
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -170,13 +170,13 @@ export default function NarkinsBoutiqueResidency() {
                             swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop={false}
                             hideIndicators={false} className="w-full rounded-xl h-[30rem]" displayMode="default"
                             dataSource={[
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Snooker.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Gym-1.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Play-Area.webp",
-                                "https://narkinsbuilders.com/wp-content/uploads/2024/04/Pool.webp"
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp",
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp",
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Snooker.webp",
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp",
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym-1.webp",
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Play-Area.webp",
+                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Pool.webp"
                             ].map((i, _) => ({ image: i, /*label: ['Reception', 'Prayer Area', 'Snooker', 'Grand Lobby', 'Gym', 'Play Area', 'Pool'][_]*/ }))}
                         />
                     </div>
@@ -192,14 +192,14 @@ export default function NarkinsBoutiqueResidency() {
                                 swipe hideArrows={false} autoPlay={true} slideShow={true} loop={true}
                                 hideIndicators={true} className={`w-full rounded-xl ${!matches ? 'aspect-video' : 'h-[40rem]'}`} displayMode="default"
                                 dataSource={[
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0776-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0787-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0797-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-02-22-04h12m09s908-1-scaled.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0771-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0774-1.webp"
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0776-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0787-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0797-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-02-22-04h12m09s908-1-scaled.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0771-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0774-1.webp"
                                 ].map(i => ({ image: i }))}
                             />
                         </div>
@@ -208,14 +208,14 @@ export default function NarkinsBoutiqueResidency() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                             {[
                                 [
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0776-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0787-1.webp"
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0776-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0787-1.webp"
                                 ],
                                 [
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0797-1.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-02-22-04h12m09s908-1-scaled.webp",
-                                    "https://narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp"
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0797-1.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-02-22-04h12m09s908-1-scaled.webp",
+                                    "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/IMG_0763-1.webp"
                                 ],
                             ]
                                 .map((images, index) => (

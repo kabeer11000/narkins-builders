@@ -132,7 +132,7 @@ export default function Home() {
             className="absolute z-1 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
           >
             <source
-              src="https://narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.mp4"
+              src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -141,7 +141,7 @@ export default function Home() {
       </div>
       <Dialog title={`Get More Information — Narkin's Builders`} {...dialogState.props} body={
         <iframe
-          src="https://narkinsbuilders.com/embedded-contact-form/"
+          src="https://admin.narkinsbuilders.com/embedded-contact-form/"
           loading="lazy"
           style={{ height: "80vh", width: "100%" }}
           frameBorder={0}
@@ -165,14 +165,14 @@ export default function Home() {
             hideIndicators={false} keyboard displayMode="default" interval={10000}
             className="flex-1 h-full max-w-[50vw]" style={{ background: 'black' }}
             dataSource={[
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg",
-              "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg",
+              "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
             ].map(i => ({ image: i }))}
           />
         </div>
@@ -185,14 +185,14 @@ export default function Home() {
                 hideIndicators={false} keyboard displayMode="default" interval={10000}
                 className="rounded w-full"
                 dataSource={[
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-34.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-35.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-36.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-37.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-38.jpg",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-39.jpg"
                 ].map(i => ({ image: i }))}
               />
             </div>
@@ -218,7 +218,7 @@ export default function Home() {
         </div>
       </section>
       {/* Page section example for content below the video header */}
-      <section className="text-white h-[70vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
+      <section className="text-white h-[70vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col justify-center h-full md:flex-row">
             <div className="max-w-3xl px-0 md:lg:px-[15px] gap-y-2 py-10 mt-[5%]">
@@ -240,7 +240,7 @@ export default function Home() {
               </div>
             </div>
             <div className="hidden md:block md:w-1/2 ml-[5rem]">
-              <img src="https://narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full min-w-[40vw]" />
+              <img src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full min-w-[40vw]" />
             </div>
           </div>
         </div>
@@ -276,10 +276,10 @@ export default function Home() {
             >
               <Carousel swipe hideArrows autoPlay slideShow loop
                 hideIndicators={false} keyboard displayMode="3d" interval={10000} className='rounded w-full mx-auto -h-full' style={{ background: 'rgb(243 244 246)', maxWidth: '70rem', height: '80vh', maxHeight: '30rem' }} dataSource={[
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp",
-                  "https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-28-at-12.49.08-AM.jpeg"
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp",
+                  "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-28-at-12.49.08-AM.jpeg"
                 ].map(i => ({ image: i }))}></Carousel>
             </div>
           </div>

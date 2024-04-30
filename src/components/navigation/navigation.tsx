@@ -12,13 +12,13 @@ const navigation = {
         {
           name: 'Hill Crest',
           href: '/hill-crest-residency',
-          imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
           name: 'Boutique Residency',
           href: '/narkins-boutique-residency',
-          imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
         },
       ],
@@ -40,19 +40,19 @@ const navigation = {
         {
           name: 'Al Arz Homes',
           href: '/completed-projects?p=al-arz-homes',
-          imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Palm Residency',
           href: '/completed-projects?p=palm-residency',
-          imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp',
           imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
         },
         {
           name: 'Al Arz Residency',
           href: '/completed-projects?p=al-arz-residency',
-          imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp',
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
         },
@@ -60,7 +60,7 @@ const navigation = {
         {
           name: 'Classic Heights',
           href: '/completed-projects?p=classic-heights',
-          imageSrc: 'https://narkinsbuilders.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-28-at-12.49.08-AM.jpeg',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/WhatsApp-Image-2024-04-28-at-12.49.08-AM.jpeg',
           imageAlt:
             'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
         },
@@ -235,7 +235,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
                   <span className="sr-only">Narkins Builders</span>
                   <img
                     className="h-8 w-auto"
-                    src="https://narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png"
+                    src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png"
                     alt=""
                   />
                 </a>

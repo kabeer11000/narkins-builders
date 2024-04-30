@@ -6,7 +6,7 @@ export default function BlogsSection() {
 
   useEffect(() => {
     // Update the URL to the correct endpoint, ensure it is pointing to your specific WordPress site.
-    fetch('https://narkinsbuilders.com/wp-json/wp/v2/posts')
+    fetch('https://admin.narkinsbuilders.com/wp-json/wp/v2/posts')
       .then(response => response.json())
       .then(data => {
         setPosts(data.map(post => ({
