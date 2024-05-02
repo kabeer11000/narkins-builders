@@ -33,7 +33,7 @@ const cards = [[
     { title: '3 Bed Platinum', size: '1884 Feet', location: 'Jinnah View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
 ], [
     { title: '4 Bed Rhodium', size: '2507 Feet', location: 'Jinnah View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
-    { title: '4 Bed Sapphire-A', size: '1762 Feet', location: 'Safari View,', image: 'http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/WhatsApp_Image_2024-05-02_at_11.22.24_PM-removebg-preview.png' },
+    { title: '4 Bed Sapphire-A', size: '1762 Feet', location: 'Safari View', image: 'http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/WhatsApp_Image_2024-05-02_at_11.22.24_PM-removebg-preview.png' },
 ]];
 
 export default function NarkinsBoutiqueResidency() {
