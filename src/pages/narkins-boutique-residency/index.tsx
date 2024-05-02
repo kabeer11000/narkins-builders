@@ -136,7 +136,7 @@ export default function NarkinsBoutiqueResidency() {
                                                             'bg-neutral-900 p-3 rounded-lg group relative',
                                                             'ring-white/60 ring-offset-2 ring-offset-neutral-400 focus:outline-none focus:ring-2'
                                                         )}>
-                                                        <img src={item.image} alt="" className="w-full h-auto" loading="lazy" />
+                                                        <img src={item.image} alt="" className="w-full h-auto" loading={idx === 0 ? "eager" : "lazy"} />
                                                         <div className="duration-[.5s] transition group-hover:duration-[.5s] invisible group-hover:visible left-[85%] top-[85%] absolute">
                                                             <MagnifyingGlassCircleIcon width={'3rem'} height={'3rem'} color="white" />
                                                         </div>
