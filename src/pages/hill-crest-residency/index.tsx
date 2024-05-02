@@ -162,7 +162,7 @@ export default function NarkinsBoutiqueResidency() {
                         <ul className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
                             {[
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp", "Gym"],
-                                ["http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg", "Prayer Areea"],
+                                ["http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg", "Prayer Area"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp", "Steam Bath"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp", "Grand Lobby"],
                             ].map(([image, name], index) => (
