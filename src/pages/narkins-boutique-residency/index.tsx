@@ -165,20 +165,39 @@ export default function NarkinsBoutiqueResidency() {
                         </p>
                     </div>
                     <div className="max-w-7xl w-full px-5 mx-auto overflow-hidden">
-                        <Carousel
-                            id='carousel'
-                            swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop={false}
-                            hideIndicators={false} className="w-full rounded-xl h-[30rem]" displayMode="default"
-                            dataSource={[
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Snooker.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym-1.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Play-Area.webp",
-                                "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Pool.webp"
-                            ].map((i, _) => ({ image: i, /*label: ['Reception', 'Prayer Area', 'Snooker', 'Grand Lobby', 'Gym', 'Play Area', 'Pool'][_]*/ }))}
-                        />
+
+                        <ul className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+                            {[
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp", "Reception"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp", "Seating Area"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Snooker.webp", "Snooker"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp", "Grand Lobby"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym-1.webp", "Gym"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Play-Area.webp", "Play Area"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Pool.webp", "Pool"],
+                            ].map(([image, name], index) => (
+                                <li key={index}>
+                                    <div className="group relative before:absolute before:-inset-2.5 before:rounded-[20px] before:bg-gray-50 before:opacity-0 hover:before:opacity-100">
+                                        <div className="relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-100 ring-1 ring-gray-900/10">
+                                            <img
+                                                src={image}
+                                                alt="" loading="lazy"
+                                                className="absolute inset-0 h-full w-full"
+                                            />
+                                        </div>
+                                        <h4 className="mt-4 text-sm font-medium text-slate-900 group-hover:text-black">
+                                            <div onClick={() => openLightbox({ image })} className="cursor-pointer">
+                                                <span className="absolute -inset-2.5 z-10" />
+                                                <span className="relative">{name}</span>
+                                            </div>
+                                        </h4>
+                                        {/* <p className="relative mt-1.5 text-xs font-medium text-slate-500">
+                                            12 components
+                                        </p> */}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </section>
                 <section className="bg-neutral-100 px-5 py-[4rem] lg:px-8">

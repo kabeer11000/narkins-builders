@@ -32,8 +32,8 @@ const cards = [[
 ], [
     { title: '3 Bed Platinum', size: '1884 Feet', location: 'Jinnah View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
 ], [
-
     { title: '4 Bed Rhodium', size: '2507 Feet', location: 'Jinnah View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Sapphire-HCR-scaled.webp' },
+    { title: '4 Bed Sapphire-A', size: '1762 Feet', location: 'Safari View,', image: 'http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/WhatsApp_Image_2024-05-02_at_11.22.24_PM-removebg-preview.png' },
 ]];
 
 export default function NarkinsBoutiqueResidency() {
@@ -66,7 +66,7 @@ export default function NarkinsBoutiqueResidency() {
                 </div>
                 <div className="relative isolate overflow-hidden py-20 pt-5 sm:py-[28px]">
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                        <div className="mx-auto max-w-2xl lg:mx-0"> 
+                        <div className="mx-auto max-w-2xl lg:mx-0">
                             <h2 className="text-4xl font-bold tracking-tight text-black sm:text-7xl">Hill Crest Residency</h2>
                             <p className="mt-6 text-lg leading-8 text-gray-800">
                                 Our Magnificent and eminent master piece is located at 29-30A Jinnah Avenue,  Just 30 seconds away and nearly 1 km drive from the main gate. We ensure a luxurious and modern lifestyle with all your necessities as well as opulence being taken care of, once you book with us a place of your own in Hill Crest.
@@ -159,7 +159,36 @@ export default function NarkinsBoutiqueResidency() {
                         </p>
                     </div>
                     <div className="max-w-7xl w-full px-5 mx-auto overflow-hidden">
-                        <Carousel
+                        <ul className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+                            {[
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp", "Gym"],
+                                ["http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg", "Prayer Areea"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp", "Steam Bath"],
+                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp", "Grand Lobby"],
+                            ].map(([image, name], index) => (
+                                <li key={index}>
+                                    <div className="group relative before:absolute before:-inset-2.5 before:rounded-[20px] before:bg-gray-50 before:opacity-0 hover:before:opacity-100">
+                                        <div className="relative aspect-[2/1] overflow-hidden rounded-lg bg-gray-100 ring-1 ring-gray-900/10">
+                                            <img
+                                                src={image}
+                                                alt="" loading="lazy"
+                                                className="absolute inset-0 h-full w-full"
+                                            />
+                                        </div>
+                                        <h4 className="mt-4 text-sm font-medium text-slate-900 group-hover:text-black">
+                                            <div onClick={() => openLightbox({ image })} className="cursor-pointer">
+                                                <span className="absolute -inset-2.5 z-10" />
+                                                <span className="relative">{name}</span>
+                                            </div>
+                                        </h4>
+                                        {/* <p className="relative mt-1.5 text-xs font-medium text-slate-500">
+                                            12 components
+                                        </p> */}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        {/* <Carousel
                             id='carousel'
                             swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop={false}
                             hideIndicators={false} className="w-full rounded-xl h-[30rem]" displayMode="default"
@@ -168,8 +197,8 @@ export default function NarkinsBoutiqueResidency() {
                                 "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/pray-area.webp",
                                 "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/steam-bath.webp",
                                 "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby.webp",
-                            ].map((i, _) => ({ image: i, /*label: ['Gym', 'Prayer Area', 'Steam Bath', 'Grand Lobby'][_]*/ }))}
-                        />
+                            ].map((i, _) => ({ image: i }))}
+                        /> */}
                     </div>
                 </section>
                 <section className="bg-neutral-100 px-5 py-[4rem] lg:px-8">
@@ -199,7 +228,7 @@ export default function NarkinsBoutiqueResidency() {
                             />
                         </div>
                     </div>
-                    <div className="max-w-7xl mx-auto hidden">
+                    <div className="max-w-7xl mx-auto">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                             {[
                                 [

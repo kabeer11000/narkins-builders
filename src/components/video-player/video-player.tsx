@@ -50,7 +50,7 @@ export default function VideoPlayer({ src, poster }: { src: string, poster?: str
                 />
             </div>
             <video className="w-full" poster={poster} ref={videoRef} preload="yes" playsInline loop muted autoPlay>
-                <source src={src} />
+                <source src={src} type="video/mp4"/>
             </video>
         </div>
     );
