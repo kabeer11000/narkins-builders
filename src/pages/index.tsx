@@ -218,7 +218,7 @@ export default function Home() {
         </div>
       </section>
       {/* Page section example for content below the video header */}
-      <section className="text-white h-[70vh] pb-[5rem] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
+      <section className="text-white h-[70vh] pt-[5rem] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="md:lg:hidden block w-full">
             <img src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full min-w-[40vw]" />
