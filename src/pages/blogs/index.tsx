@@ -1,9 +1,10 @@
-import { Post } from '@/pages/blog/[...blog]';
+import Footer from '@/components/footer/footer';
+import Navigation from '@/components/navigation/navigation';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-export default function BlogsSection() {
-  const [posts, setPosts] = useState<Post[]>([]);
+export default function Blogs() {
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     // Update the URL to the correct endpoint, ensure it is pointing to your specific WordPress site.
@@ -29,10 +30,12 @@ export default function BlogsSection() {
   }, []);
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <>
+    <Navigation/>
+    <div className="bg-white min-h-screen py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{`Narkin's Builders`} Blog</h2>
           <p className="mt-2 text-lg leading-8 text-gray-600">
             Checkout what were publishing on our blog
           </p>
@@ -52,7 +55,7 @@ export default function BlogsSection() {
                   {`Narkin's`}
                 </Link>
               </div>
-              <div className="group relative"> 
+              <div className="group relative">
                 <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <Link href={`${post.link}`}>
                     <span className="absolute inset-0" />
@@ -78,5 +81,7 @@ export default function BlogsSection() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }

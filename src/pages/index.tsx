@@ -38,6 +38,15 @@ function classNames(...classes) {
 
 const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
 export default function Home() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.playsinline = true;
+      // videoRef.current.play().catch(error => console.error("Video play failed", error));
+    }
+  }, [videoRef.current]);
   const dialogState = useDialogState();
   return (
     <>
@@ -89,7 +98,7 @@ export default function Home() {
           rel="stylesheet"
           crossOrigin="anonymous"
         /> */}
-        <header className="relative flex items-center justify-center h-[70vh] overflow-hidden">
+        <header className="relative flex items-center justify-center min-h-[70vh] overflow-hidden">
           <div
             className="relative z-10 text-white"
           >
@@ -127,16 +136,23 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <video
-            preload="yes" playsInline loop muted={true} autoPlay
+          <video ref={videoRef} className="absolute z-1 w-auto min-w-full min-h-full filter brightness-50 max-w-none"
+            loop autoPlay={true} playsInline={true} muted={true} controls={false} disablePictureInPicture>
+            <source src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+
+          {/* <video
+            preload="yes" playsInline={true} controls loop={true} muted={true} autoPlay
             className="absolute z-1 w-auto min-w-full min-h-full filter brightness-[50%] max-w-none"
           >
             <source
-              src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.mp4"
+              src="https://www.w3schools.com/html/movie.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
         </header>
       </div>
       <Dialog title={`Get More Information — Narkin's Builders`} {...dialogState.props} body={
@@ -218,8 +234,8 @@ export default function Home() {
         </div>
       </section>
       {/* Page section example for content below the video header */}
-      <section className="text-white h-[80vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="text-white min-h-[80vh] flex items-center bg-cover bg-center bg-fixed" style={{ backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp)" }}>
+        <div className="max-w-7xl mx-auto px-4 py-[5rem]">
           <div className="md:lg:hidden block w-full">
             <img src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp" alt="Hill Crest Residency" className="rounded-lg w-full min-w-[40vw]" />
           </div>

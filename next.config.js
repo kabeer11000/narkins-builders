@@ -7,4 +7,5 @@ const nextConfig = {
   }
 }
 
-module.exports = nextConfig
+const withPurgeCss = require("next-purgecss");
+module.exports = withPurgeCss(nextConfig);

@@ -4,13 +4,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <meta data-rh="true" name="theme-color" content="#000000" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
+      <meta data-rh="true" name="theme-color" content="#FFFFFF" />
+      {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" /> */}
+      {/* <link
         href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet"
-      />
+      /> */}
       <body>
         <Main />
         <NextScript />

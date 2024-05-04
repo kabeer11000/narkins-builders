@@ -1,17 +1,22 @@
 import VideoPlayerControls from "@/components/video-player/video-player-controls";
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 
 export default function VideoPlayer({ src, poster }: { src: string, poster?: string }) {
     const [videoProgress, setVideoProgress] = useState<number>(0);
     const [videoDuration, setVideoDuration] = useState<number>();
     const [isPaused, setIsPaused] = useState(false);
     const videoRef = useRef<HTMLVideoElement>(null);
+    const [isSafari, setIsSafari] = useState(false);
 
     useEffect(() => {
         const video = videoRef.current;
         if (video) {
             setVideoDuration(video.duration);
         }
+        function isMobileSafari() {
+            return navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/) || (window.safari !== undefined)
+        }
+        setIsSafari(!!isMobileSafari());
     }, []);
 
     useEffect(() => {
@@ -42,16 +47,24 @@ export default function VideoPlayer({ src, poster }: { src: string, poster?: str
 
     return (
         <div className="relative w-full rounded-xl overflow-hidden">
-            <div className="absolute top-4 right-4 z-10">
-                <VideoPlayerControls
-                    progress={videoProgress}
-                    isPaused={isPaused}
-                    onPlayPause={togglePlayPause}
-                />
-            </div>
-            <video className="w-full" poster={poster} ref={videoRef} preload="yes" playsInline loop muted={true}>
-                <source src={src} type="video/mp4"/>
-            </video>
+            {isSafari ? <video className="w-full bg-neutral-300" muted poster={poster} playsInline controls>
+                <source src={'/hero-bg.mp4'} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video> : (
+                <Fragment>
+                    <div className="absolute top-4 right-4 z-10">
+                        <VideoPlayerControls
+                            progress={videoProgress}
+                            isPaused={isPaused}
+                            onPlayPause={togglePlayPause}
+                        />
+                    </div>
+                    <video className="w-full h-auto bg-neutral-300" poster={poster} ref={videoRef} preload="yes"
+                        loop playsInline muted controls={false} disablePictureInPicture>
+                        <source src={src} type="video/mp4" />
+                    </video>
+                </Fragment>
+            )}
         </div>
     );
 }

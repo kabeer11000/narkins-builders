@@ -10,13 +10,13 @@ const navigation = {
       name: 'Ongoing projects',
       featured: [
         {
-          name: 'Hill Crest',
+          name: 'Hill Crest Residency',
           href: '/hill-crest-residency',
           imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
-          name: 'Boutique Residency',
+          name: 'Narkin\'s Boutique Residency',
           href: '/narkins-boutique-residency',
           imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg',
           imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
@@ -81,8 +81,9 @@ const navigation = {
   ],
   pages: [
     { name: 'Home', href: '/' },
+    { name: 'Blogs', href: '/blogs' },
     { name: 'About Us', href: 'https://gromotions.com/narkin/about/' },
-    { name: 'Contact Us', href: 'https://api.whatsapp.com/send?phone=923152386393' },
+    { name: 'Contact Us', href: `https://api.whatsapp.com/send?phone=${process.env.WA_PHONE}` },
   ],
 }
 
