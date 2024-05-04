@@ -48,7 +48,7 @@ export default function VideoPlayer({ src, poster }: { src: string, poster?: str
     return (
         <div className="relative w-full rounded-xl overflow-hidden">
             {isSafari ? <video className="w-full bg-neutral-300" muted poster={poster} playsInline controls>
-                <source src={'/hero-bg.mp4'} type="video/mp4" />
+                <source src={src} type="video/mp4" />
                 Your browser does not support the video tag.
             </video> : (
                 <Fragment>
