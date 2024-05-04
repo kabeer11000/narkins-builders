@@ -138,7 +138,7 @@ export default function Home() {
           </div>
           <video ref={videoRef} className="absolute z-1 w-auto min-w-full min-h-full filter brightness-50 max-w-none"
             loop autoPlay={true} playsInline={true} muted={true} controls={false} disablePictureInPicture>
-            <source src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/C-NARKINS-EXTERIOR.mp4" type="video/mp4" />
+            <source src="hero-bg.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

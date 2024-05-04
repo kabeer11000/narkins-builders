@@ -6,6 +6,4 @@ const nextConfig = {
     ignoreBuildErrors: true
   }
 }
-
-const withPurgeCss = require("next-purgecss");
-module.exports = withPurgeCss(nextConfig);
+module.exports = (nextConfig);
