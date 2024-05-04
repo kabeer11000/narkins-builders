@@ -20,6 +20,7 @@
     "autoprefixer": "10.4.19",
     "eslint": "9.1.0",
     "eslint-config-next": "14.2.2",
+    "mailtoui": "1.0.3",
     "next": "14.2.2",
     "next-purgecss": "^4.0.0",
     "postcss": "8.4.38",

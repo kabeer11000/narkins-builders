@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState, Fragment } from 'react';
-import 'smart-webcomponents-react/source/styles/smart.default.css';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 // import Script from 'next/script';
@@ -36,7 +35,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
+const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: false });
 export default function Home() {
   const videoRef = useRef(null);
 
@@ -136,7 +135,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <video ref={videoRef} className="absolute z-1 w-auto min-w-full min-h-full filter brightness-50 max-w-none"
+          <video ref={videoRef} preload='yes' className="absolute z-1 w-auto min-w-full min-h-full filter brightness-50 max-w-none"
             loop autoPlay={true} playsInline={true} muted={true} controls={false} disablePictureInPicture>
             <source src="hero-bg.mp4" type="video/mp4" />
             Your browser does not support the video tag.

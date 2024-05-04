@@ -10,6 +10,7 @@ import Footer from "@/components/footer/footer";
 import { Lightbox } from "@/components/lightbox/lightbox";
 import Link from "next/link";
 import Head from "next/head";
+import Map from "@/components/map/map";
 const people = [
     'Durward Reynolds',
     'Kenton Towne',
@@ -19,10 +20,10 @@ const people = [
 ]
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
-const Carousel = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
+const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: false });
 const categories = ['2 Bed', '3 Bed', '4 Bed'];
 const cards = [[
     { title: '2 Bed Gold', size: '1547 Square Feet', location: 'Heritage Club & Danzoo Safari View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/7.Gold-Heritage-club-and-danzoo-safari-view-removebg-preview.png' },
@@ -31,8 +32,8 @@ const cards = [[
     { title: '3 Bed Diamond-A', size: '2121 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/5.Diamond-A-jinnah-and-theme-park-view.webp' },
 ], [
     { title: '4 Bed Platinum-A', size: '2597 Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/4.Platinum-A-jinnah-and-theme-park-view.png' },
-    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Danzoori Safari View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/3.Platinum-A-1-Corner-jinnah-and-danzoo-safari-view.webp' },
-    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/1.-Platinum-A-1-Corner-jinnah-and-theme-park-view.webp' },
+    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Danzoo Safari View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/3.Platinum-A-1-Corner-jinnah-and-danzoo-safari-view.webp' },
+    { title: '4 Bed Platinum A-1 Corner', size: '2670 Square Feet', location: 'Jinnah & Boulevard View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/1.-Platinum-A-1-Corner-jinnah-and-theme-park-view.webp' },
     { title: '4 Bed Platinum A-1', size: '2486 Square Feet', location: 'Jinnah & Theme Park View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/2.Platinum-A-1-jinnah-and-danzoo-safari-view.webp' },
 ]];
 
@@ -46,17 +47,10 @@ export default function NarkinsBoutiqueResidency() {
     const [query, setQuery] = useState('')
     const matches = useMediaQuery('(min-width: 768px)');
 
-    const filteredPeople =
-        query === ''
-            ? people
-            : people.filter((person) => {
-                return person.toLowerCase().includes(query.toLowerCase())
-            })
-
     return (
         <main>
             <Head>
-                <title>Narkin's Boutique Residency</title>
+                <title>{`Narkin's Boutique Residency`}</title>
             </Head>
             <Navigation />
             <Lightbox {...lightbox} onClose={() => setLightbox({ ...lightbox, open: false, image: '' })} />
@@ -69,15 +63,15 @@ export default function NarkinsBoutiqueResidency() {
                         <div className="mx-auto max-w-2xl lg:mx-0">
                             <h2 className="text-4xl font-bold tracking-tight text-black sm:text-7xl">{`Narkin's Boutique Residency`}</h2>
                             <p className="mt-6 text-lg leading-8 text-gray-800">
-                                Welcome to Narkin's Boutique Residency, where luxury meets bespoke design in the heart of Bahria Town Karachi's Heritage Commercial area. Crafted by "Talent & Taste," our premium high-rise apartments redefine upscale living with their exquisite attention to detail.
+                                Welcome to {`Narkin's `}Boutique Residency, where luxury meets bespoke design in the heart of Bahria Town Karachi's Heritage Commercial area. Crafted by "Talent & Taste," our premium high-rise apartments redefine upscale living with their exquisite attention to detail.
                                 <br /><br />
-                                Nestled in the esteemed Heritage Commercial area, Narkin's Boutique Residency offers residents unparalleled access to a wealth of amenities and attractions. From exclusive luxury farmhouses and the prestigious Heritage Club to the convenience of Imtiaz Mega, shopping malls, and a bustling food street, everything you desire is just a walk away. Additionally, the 24/7 Shop Stop & PSO ensures your daily needs are effortlessly met.
+                                Nestled in the esteemed Heritage Commercial area, {`Narkin's`} Boutique Residency offers residents unparalleled access to a wealth of amenities and attractions. From exclusive luxury farmhouses and the prestigious Heritage Club to the convenience of Imtiaz Mega, shopping malls, and a bustling food street, everything you desire is just a walk away. Additionally, the 24/7 Shop Stop & PSO ensures your daily needs are effortlessly met.
                                 <br /><br />
-                                With ground + 29 floors, Narkin's Boutique Residency presents a selection of 2, 3, and 4-bedroom luxury apartments, each boasting panoramic views of Bahria Town Karachi. Experience the epitome of sophistication as you unwind in your designer Apartment.
+                                With ground + 29 floors, {`Narkin's`} Boutique Residency presents a selection of 2, 3, and 4-bedroom luxury apartments, each boasting panoramic views of Bahria Town Karachi. Experience the epitome of sophistication as you unwind in your designer Apartment.
                                 <br /><br />
-                                But the luxury extends beyond your residence. As a resident of Narkin's Boutique Residency, you'll enjoy exclusive access to over 10+ premium amenities designed to enrich your lifestyle. From state-of-the-art fitness facilities to indoor swimming pool and recreational areas, every amenity is tailored to cater to your needs and desires.
+                                But the luxury extends beyond your residence. As a resident of {`Narkin's`} Boutique Residency, you'll enjoy exclusive access to over 10+ premium amenities designed to enrich your lifestyle. From state-of-the-art fitness facilities to indoor swimming pool and recreational areas, every amenity is tailored to cater to your needs and desires.
                                 <br />
-                                Elevate your lifestyle to new heights with Narkin's Boutique Residency.
+                                Elevate your lifestyle to new heights with {`Narkin's`} Boutique Residency.
                             </p>
                         </div>
                         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -159,14 +153,13 @@ export default function NarkinsBoutiqueResidency() {
                 </section>
                 <section className="bg-white py-5 mx-auto max-w-7xl py-[5rem] lg:px-8">
                     <div className="mx-auto px-6 my-5 max-w-2xl lg:mx-0">
-                        <h3 className="text-3xl font-bold tracking-tight text-black sm:text-4xl capitalize">Our Amenities</h3>
+                        <h3 className="text-3xl font-bold tracking-tight text-black sm:text-4xl capitalize">Amenities in {`Narkin's Boutique Residency`}</h3>
                         <p className="mt-6 text-lg leading-8 text-gray-800">
-                            Top-notch Amenities at Your Doorstep
+                            Top-notch Amenities in our project
                         </p>
                     </div>
                     <div className="max-w-7xl w-full px-5 mx-auto overflow-hidden">
-
-                        <ul className="col-span-3 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
+                        <ul className="col-span-3 mb-4 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
                             {[
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp", "Reception"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp", "Seating Area"],
@@ -198,6 +191,20 @@ export default function NarkinsBoutiqueResidency() {
                                 </li>
                             ))}
                         </ul>
+                        <Carousel
+                            id='carousel'
+                            swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop={false}
+                            hideIndicators={false} className="w-full rounded-xl h-[30rem]" displayMode="default"
+                            dataSource={[
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Mosque-with-title.webp",
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Play-Area-with-title.webp",
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Pool-with-title.webp",
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Reception-with-title.webp",
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Steam-Bath-with-title.webp",
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Billiard-Rooms-with-title.webp",
+                                "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Gym-with-title.webp"
+                            ].map((i, _) => ({ image: i }))}
+                        />
                     </div>
                 </section>
                 <section className="bg-neutral-100 px-5 py-[4rem] lg:px-8">
@@ -245,6 +252,7 @@ export default function NarkinsBoutiqueResidency() {
                                     </div>
                                 ))}
                         </div>
+                        <Map map={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.564164811388!2d67.31885989999999!3d25.0149214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34bad638fbbb1%3A0x4aa67ba370e4667b!2sNarkins%20Boutique%20Residency!5e0!3m2!1sen!2s!4v1714296380913!5m2!1sen!2s'} />
                     </div>
                 </section>
                 <section className="bg-neutral-100 border-t -px-5 lg:px-8 py-[4rem]">
@@ -318,7 +326,7 @@ export default function NarkinsBoutiqueResidency() {
                     </div>
                 </section>
             </div>
-            <Footer map={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.564164811388!2d67.31885989999999!3d25.0149214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb34bad638fbbb1%3A0x4aa67ba370e4667b!2sNarkins%20Boutique%20Residency!5e0!3m2!1sen!2s!4v1714296380913!5m2!1sen!2s'} />
+            <Footer />
         </main>
     )
 }

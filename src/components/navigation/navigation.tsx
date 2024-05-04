@@ -12,7 +12,7 @@ const navigation = {
         {
           name: 'Hill Crest Residency',
           href: '/hill-crest-residency',
-          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/HCR-elevation-from-drone-scaled.webp',
+          imageSrc: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2024-04-29-01h34m42s043-scaled.webp',
           imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
         },
         {
