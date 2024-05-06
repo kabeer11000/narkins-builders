@@ -63,7 +63,7 @@ export default function NarkinsBoutiqueResidency() {
             <Lightbox {...lightbox} onClose={() => setLightbox({ ...lightbox, open: false, image: '' })} />
             <div className="bg-white pt-[6rem]">
                 <div className="px-4 bg-neutral-50 relative md:xl:px-0 w-full h-auto max-w-7xl z-index-0 bg-transparent mx-auto my-8 rounded-xl overflow-hidden -md:lg:rounded-none">
-                    <VideoPlayer src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/05/Hill-Crest-Project-Page-Final-VIdeo.mp4" poster={'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h25m05s134-1.jpg'} />
+                    <VideoPlayer src="/hillcrest.mp4" poster={'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/vlcsnap-2023-11-29-02h25m05s134-1.jpg'} />
                 </div>
                 <div className="relative isolate overflow-hidden py-20 pt-5 sm:py-[28px]">
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -191,8 +191,8 @@ export default function NarkinsBoutiqueResidency() {
                         </ul>
                         <Carousel
                             id='carousel'
-                            swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop={false}
-                            hideIndicators={false} className="w-full rounded-xl h-[30rem]" displayMode="default"
+                            swipe hideArrows={!matches} autoPlay={false} slideShow={false} loop rightToLeft
+                            hideIndicators={true} className="w-full rounded-xl h-[30rem]" displayMode="default"
                             dataSource={[
                                 "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym.webp",
                                 "http://admin.narkinsbuilders.com/wp-content/uploads/2024/05/360_F_192497991_zopc1FKgPsa0UmnpH8cV7l0FwrqmYLCO.jpg",

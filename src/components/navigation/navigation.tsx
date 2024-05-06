@@ -82,7 +82,7 @@ const navigation = {
   pages: [
     { name: 'Home', href: '/' },
     { name: 'Blogs', href: '/blogs' },
-    { name: 'About Us', href: 'https://gromotions.com/narkin/about/' },
+    { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: `https://api.whatsapp.com/send?phone=${process.env.WA_PHONE}` },
   ],
 }
@@ -93,11 +93,12 @@ function classNames(...classes: any[]) {
 
 interface NavigationProps {
   transparent?: boolean
+  fixed?: boolean
 }
 
-const Navigation: FC<NavigationProps> = ({ transparent }) => {
+const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
   const [open, setOpen] = useState(false);
-
+  const isFixed = fixed ?? true;
   return (
     <div className={`text-white ${transparent ? "bg-transparent" : "bg-transparent"}`}>
       {/* Mobile menu */}
@@ -212,7 +213,7 @@ const Navigation: FC<NavigationProps> = ({ transparent }) => {
         </Dialog>
       </Transition.Root>
 
-      <header style={{ backdropFilter: 'blur(5px)', background: 'rgba(255, 255, 255, 0.925)' }} className={`fixed top-0 w-[100vw] z-[999] ${transparent ? "bg-transparent" : ""} ${transparent ? 'text-white' : 'text-gray-800'}`}>
+      <header style={{ backdropFilter: 'blur(5px)', background: 'rgba(255, 255, 255, 0.925)' }} className={`${isFixed ? "fixed" : "static"} top-0 w-[100vw] z-[999] ${transparent ? "bg-transparent" : ""} ${transparent ? 'text-white' : 'text-gray-800'}`}>
         {/* <p className="flex h-10 items-center justify-center bg-black px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           Get free delivery on orders over $100
         </p> */}
