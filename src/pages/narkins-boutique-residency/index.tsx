@@ -162,9 +162,9 @@ export default function NarkinsBoutiqueResidency() {
                         <ul className="col-span-3 mb-4 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-2 sm:gap-y-10 md:grid-cols-3 xl:gap-x-8">
                             {[
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Reception.webp", "Reception"],
-                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp", "Seating Area"],
+                                // ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Seating.webp", "Seating Area"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Snooker.webp", "Snooker"],
-                                ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp", "Grand Lobby"],
+                                // ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Grand-Lobby-1.webp", "Grand Lobby"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Gym-1.webp", "Gym"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Play-Area.webp", "Play Area"],
                                 ["https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Pool.webp", "Pool"],
