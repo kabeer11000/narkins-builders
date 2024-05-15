@@ -175,7 +175,7 @@ export default function Home() {
       <section className="text-white flex overflow-hidden bg-black">
         <div className="hidden lg:flex xl:flex md:flex flex-grow w-1/2 flex-1 h--full max-w-[50vw]">
           <Carousel
-            id='carousel'
+            id='carousel' isNotRounded={true}
             swipe hideArrows={false} autoPlay slideShow loop rightToLeft
             hideIndicators={true} keyboard displayMode="default" interval={10000}
             dataSource={[

@@ -22,7 +22,7 @@ export function Carousel({
     loop = true,
     rightToLeft = false,
     hideIndicators = false,
-    interval = 10000
+    interval = 10000, isNotRounded=false,
 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [touchStart, setTouchStart] = useState(0);
@@ -82,7 +82,7 @@ export function Carousel({
     };
 
     return (
-        <div className="relative w-full overflow-hidden z-[0] h-full rounded-xl">
+        <div className={`relative w-full overflow-hidden z-[0] h-full ${!isNotRounded ? "rounded-xl" : ""}`}>
             <div
                 className="flex transition-transform duration-500 ease-in-out h-full"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
