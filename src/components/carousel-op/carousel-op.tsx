@@ -120,7 +120,7 @@ export function Carousel({
                                 strokeWidth={2}
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
-                                className="h-5 w-5 text-white dark:text-gray-800 sm:h-6 sm:w-6"
+                                className="h-5 w-5 text-white sm:h-6 sm:w-6"
                                 height="1em"
                                 width="1em"
                                 xmlns="http://www.w3.org/2000/svg"
