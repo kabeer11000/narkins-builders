@@ -35,7 +35,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: false });
+const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: true });
 export default function Home() {
   const videoRef = useRef(null);
 
@@ -99,7 +99,7 @@ export default function Home() {
         /> */}
         <header className="relative flex items-center justify-center min-h-[70vh] overflow-hidden">
           <div
-            className="relative z-10 text-white"
+            className="relative z-1 text-white"
           >
             <div className="mx-auto px-4">
               <div className="row">
