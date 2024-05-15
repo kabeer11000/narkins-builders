@@ -1,16 +1,3 @@
-
-// import './carousel-op.module.css';
-// import { Carousel as CarouselO } from 'smart-webcomponents-react/carousel';
-// export {CarouselO as Carousel};
-// import dynamic from "next/dynamic";
-// import 'smart-webcomponents-react/source/styles/default/smart.carousel.css';
-
-// const CarouselO = dynamic(() => import('smart-webcomponents-react/carousel').then(d => d.Carousel), { ssr: false });
-// export function Carousel ({...props}) {
-//     return (
-//         <CarouselO {...props} />
-//     )
-// }
 import React, { useState, useEffect, useRef } from 'react';
 
 export function Carousel({

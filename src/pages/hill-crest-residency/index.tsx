@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation/navigation";
 import VideoPlayer from "@/components/video-player/video-player";
-import 'smart-webcomponents-react/source/styles/smart.default.css';
 import { Tab } from "@headlessui/react";
 import { MagnifyingGlassCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { useState, Fragment } from "react";
@@ -11,6 +10,7 @@ import { Lightbox } from "@/components/lightbox/lightbox";
 import Link from "next/link";
 import Map from "@/components/map/map";
 import Head from "next/head";
+import Carousel from "@/components/carousel-op/carousel-op";
 
 const people = [
     'Durward Reynolds',
@@ -24,7 +24,6 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: false });
 const categories = ['2 Bed', '3 Bed', '4 Bed'];
 const cards = [[
     { title: '2 Bed Diamond', size: '1276 Square Feet', location: 'Jinnah View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Diamond-HCR-scaled.webp' },

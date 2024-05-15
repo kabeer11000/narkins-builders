@@ -10,6 +10,7 @@ import { ArrowPathIcon, Bars3Icon, BellIcon, ChartPieIcon, ChevronDownIcon, Curs
 import Link from 'next/link';
 import Testimonials from '@/components/testimonials/testimonials';
 import BlogsSection from '@/components/blogs-section/blogs-section';
+import Carousel from "@/components/carousel-op/carousel-op";
 
 const navigation = [
   { name: 'Dashboard', href: '#', current: true },
@@ -35,7 +36,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: true });
 export default function Home() {
   const videoRef = useRef(null);
 

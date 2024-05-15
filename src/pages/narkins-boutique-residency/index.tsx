@@ -1,6 +1,5 @@
 import Navigation from "@/components/navigation/navigation";
 import VideoPlayer from "@/components/video-player/video-player";
-import 'smart-webcomponents-react/source/styles/smart.default.css';
 import { Tab } from "@headlessui/react";
 import { MagnifyingGlassCircleIcon, XCircleIcon } from "@heroicons/react/20/solid";
 import { useState, Fragment } from "react";
@@ -22,8 +21,7 @@ const people = [
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
-
-const Carousel = dynamic(() => import('@/components/carousel-op/carousel-op').then(d => d.Carousel), { ssr: false });
+import Carousel from "@/components/carousel-op/carousel-op";
 const categories = ['2 Bed', '3 Bed', '4 Bed'];
 const cards = [[
     { title: '2 Bed Gold', size: '1547 Square Feet', location: 'Heritage Club & Danzoo Safari View', image: 'https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/7.Gold-Heritage-club-and-danzoo-safari-view-removebg-preview.png' },
@@ -44,7 +42,7 @@ export default function NarkinsBoutiqueResidency() {
     const openLightbox = ({ image }: { image: string }) => {
         setLightbox({ ...lightbox, open: true, image });
     }
-    const [query, setQuery] = useState('')
+    // const [query, setQuery] = useState('')
     const matches = useMediaQuery('(min-width: 768px)');
 
     return (
