@@ -1,7 +1,7 @@
 import React, { Fragment, useState, FC } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import Link from 'next/link'
 
 const navigation = {
   categories: [
@@ -233,14 +233,14 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="/">
+                <Link href="/">
                   <span className="sr-only">Narkins Builders</span>
                   <img
                     className="h-8 w-auto"
                     src="https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Narkins-Logo.png"
                     alt=""
                   />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -256,7 +256,7 @@ const Navigation: FC<NavigationProps> = ({ transparent, fixed }) => {
                                 open
                                   ? 'border-neutral-600 text-neutral-600'
                                   : 'border-transparent text-gray-700 hover:text-gray-800',
-                                'relative z-10 -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
+                                'relative z-[99] -mb-px flex items-center border-b-2 pt-px text-sm font-medium transition-colors duration-200 ease-out'
                               )}
                             >
                               {category.name}

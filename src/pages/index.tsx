@@ -173,12 +173,11 @@ export default function Home() {
         }} />
       {/* Page section example for content below the video header */}
       <section className="text-white flex overflow-hidden bg-black">
-        <div className="hidden lg:flex xl:flex md:flex flex-grow w-1/2">
+        <div className="hidden lg:flex xl:flex md:flex flex-grow w-1/2 flex-1 h--full max-w-[50vw]">
           <Carousel
             id='carousel'
             swipe hideArrows={false} autoPlay slideShow loop rightToLeft
             hideIndicators={true} keyboard displayMode="default" interval={10000}
-            className="flex-1 h-full max-w-[50vw]" style={{ background: 'black' }}
             dataSource={[
               "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
               "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
@@ -193,12 +192,11 @@ export default function Home() {
         </div>
         <div className="max-w-7xl h-full py-[2.5rem] mx-auto px-4">
           <div className="flex flex-col pt-10 justify-center h-full md:flex-row">
-            <div className="lg:hidden xl:hidden md:hidden w-full">
+            <div className="lg:hidden xl:hidden md:hidden w-full rounded">
               <Carousel
                 id='carousel'
                 swipe hideArrows={false} autoPlay slideShow
                 hideIndicators={true} loop rightToLeft keyboard displayMode="default" interval={10000}
-                className="rounded w-full"
                 dataSource={[
                   "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-32.jpg",
                   "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/Screenshot-33.jpg",
@@ -284,16 +282,14 @@ export default function Home() {
               </div>
             </div>
             <div
-              className="mx-auto py-4"
+              className="mx-auto py-4- my-4 rounded-xl w-full mx-auto mt-5 max-w-3xl overflow-hidden"
               style={{
                 display: "flex",
-                height: "100%",
                 paddingTop: "0rem",
-                flexDirection: "column"
+                flexDirection: "column", background: 'rgb(243 244 246)', height: '80vh', maxHeight: '30rem'
               }}
             >
-              <Carousel swipe hideArrows autoPlay slideShow  loop rightToLeft
-                hideIndicators={true} keyboard displayMode="3d" interval={10000} className='rounded w-full mx-auto -h-full' style={{ background: 'rgb(243 244 246)', maxWidth: '70rem', height: '80vh', maxHeight: '30rem' }} dataSource={[
+              <Carousel swipe autoPlay slideShow  loop rightToLeft keyboard displayMode="3d" interval={10000} dataSource={[
                   "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-home-scaled.webp",
                   "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/al-arz-residency-scaled.webp",
                   "https://admin.narkinsbuilders.com/wp-content/uploads/2024/04/palm-residency-scaled.webp",
