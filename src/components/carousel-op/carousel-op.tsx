@@ -92,7 +92,7 @@ export function Carousel({
             >
                 {dataSource.map((item, index) => (
                     <div key={index} className="flex-none w-full h-full flex items-center justify-center">
-                        <img src={item.image} loading={index === 0 ? "eager" : "lazy"} alt={`Slide ${index}`} style={{objectFit: 'cover', flex: 1}} className="w-full h-full" />
+                        <img src={item.image} loading={index === 0 ? "lazy" : "lazy"} alt={`Slide ${index}`} style={{objectFit: 'cover', flex: 1}} className="w-full h-full" />
                     </div>
                 ))}
             </div>
