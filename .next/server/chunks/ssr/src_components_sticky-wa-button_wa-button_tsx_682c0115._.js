@@ -13,13 +13,27 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link
 ;
 ;
 function WAButton() {
+    const handleWhatsAppClick = (e)=>{
+        // Prevent navigation temporarily to see tracking
+        e.preventDefault();
+        console.log('WhatsApp button clicked!');
+        // Direct gtag call
+        if ("TURBOPACK compile-time falsy", 0) {
+            "TURBOPACK unreachable";
+        }
+        // Open WhatsApp after delay
+        setTimeout(()=>{
+            window.open('https://api.whatsapp.com/send?phone=923203243970', '_blank');
+        }, 1000);
+    };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-        href: "https://api.whatsapp.com/send?phone=923203243970",
+        href: "#",
         style: {
             bottom: '1rem',
             right: '1rem'
         },
         className: "z-[998] border justify-space-between items-center w-[10rem] fixed py-2 gap-x-2 flex px-2 shadow bor-der no-underline rounded-full bg-black text-white font-sans font-semibold text-sm -mr-2",
+        onClick: handleWhatsAppClick,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("svg", {
                 viewBox: "0 0 32 32",
@@ -30,12 +44,12 @@ function WAButton() {
                     fillRule: "evenodd"
                 }, void 0, false, {
                     fileName: "[project]/src/components/sticky-wa-button/wa-button.tsx",
-                    lineNumber: 11,
+                    lineNumber: 33,
                     columnNumber: 17
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/sticky-wa-button/wa-button.tsx",
-                lineNumber: 10,
+                lineNumber: 32,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -44,20 +58,20 @@ function WAButton() {
                 }
             }, void 0, false, {
                 fileName: "[project]/src/components/sticky-wa-button/wa-button.tsx",
-                lineNumber: 17,
+                lineNumber: 39,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                 children: "Whatsapp"
             }, void 0, false, {
                 fileName: "[project]/src/components/sticky-wa-button/wa-button.tsx",
-                lineNumber: 18,
+                lineNumber: 40,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/sticky-wa-button/wa-button.tsx",
-        lineNumber: 5,
+        lineNumber: 26,
         columnNumber: 9
     }, this);
 }

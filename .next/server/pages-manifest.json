@@ -2,8 +2,5 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-  "/about": "pages/about.js",
-  "/completed-projects": "pages/completed-projects.js",
-  "/hill-crest-residency": "pages/hill-crest-residency.js"
+  "/_error": "pages/_error.js"
 }
